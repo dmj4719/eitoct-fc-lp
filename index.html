@@ -107,21 +107,136 @@ h3.lp-h .u{
 .cta-btn small{display:block;font-size:11.5px;font-weight:500;opacity:.92;letter-spacing:.1em;}
 .cta-sub{font-size:11.5px;color:var(--ink-soft);margin-top:10px;}
 /* ============ ①FV ============ */
-.fv{background:linear-gradient(165deg,#F3FAF6 0%, #E3F1E9 55%, #D8EAE0 100%);padding:38px 26px 34px;position:relative;}
+/* --- FV背景：多層グラデーション + 幾何学パターン --- */
+.fv{
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(62,138,110,.13) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 80%, rgba(196,134,42,.08) 0%, transparent 65%),
+    linear-gradient(165deg,#F3FAF6 0%, #E3F1E9 40%, #D4E8DC 70%, #C8DFD2 100%);
+  padding:38px 26px 36px;
+  position:relative;
+  overflow:hidden;
+}
+/* 幾何学パターン（微細な六角ドット） */
+.fv::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle, rgba(30,92,76,.07) 1.5px, transparent 1.5px);
+  background-size:28px 28px;
+  pointer-events:none;
+}
+/* 光のアクセント（右上） */
+.fv::after{
+  content:"";
+  position:absolute;top:-60px;right:-60px;
+  width:260px;height:260px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(196,134,42,.10) 0%, transparent 68%);
+  pointer-events:none;
+}
 .recruit-ribbon{
+  position:relative;z-index:1;
   text-align:center;font-family:"Zen Maru Gothic",sans-serif;
-  font-size:17px;font-weight:900;color:#fff;background:var(--green-deep);
-  border-radius:999px;padding:8px 10px;margin:0 30px 16px;letter-spacing:.12em;
-  box-shadow:0 4px 12px rgba(30,92,76,.25);
+  font-size:14px;font-weight:700;color:rgba(255,255,255,.94);
+  background:linear-gradient(135deg, var(--green-deep) 0%, #2D7A60 100%);
+  border-radius:999px;padding:6px 10px;margin:0 40px 18px;letter-spacing:.14em;
+  box-shadow:0 3px 10px rgba(30,92,76,.22);
+}
+/* --- ポイントバッジ（チェックアイコン付き） --- */
+.fv .fv-points{
+  position:relative;z-index:1;
+  display:flex;gap:7px;justify-content:center;margin:0 0 22px;flex-wrap:wrap;
+}
+.fv .fv-points span{
+  background:rgba(255,255,255,.90);
+  border:1.5px solid var(--green-mid);color:var(--green-deep);
+  font-size:12.5px;font-weight:700;border-radius:999px;padding:5px 13px 5px 10px;
+  display:inline-flex;align-items:center;gap:4px;
+  box-shadow:0 2px 6px rgba(30,92,76,.10);
+}
+.fv .fv-points span::before{
+  content:"✓";
+  font-size:11px;font-weight:900;
+  color:var(--green-mid);
+}
+/* --- メインコピー --- */
+.fv h3.fv-copy{
+  position:relative;z-index:1;
+  font-family:"Zen Maru Gothic",sans-serif;
+  text-align:center;font-weight:900;color:var(--ink);
+  font-size:28px;line-height:1.5;margin:10px 0 8px;
+  letter-spacing:.04em;
 }
 .fv h3.fv-copy .fc{color:var(--green-deep);}
-.fv-profit{
-  text-align:center;font-size:19px;font-weight:900;color:var(--ink);
-  font-family:"Zen Maru Gothic",sans-serif;margin:2px 0 4px;
+.fv h3.fv-copy .zero{
+  color:var(--green-deep);font-size:46px;letter-spacing:.02em;
 }
-.fv-profit .money{color:var(--gold);font-size:42px;letter-spacing:.02em;}
-.fv-profit .money .unit{font-size:24px;}
-.fv-profit .ast{font-size:12px;font-weight:500;color:var(--ink-soft);}
+.fv h3.fv-copy .money{color:var(--gold);font-size:42px;}
+.fv h3.fv-copy .small{font-size:16px;font-weight:700;color:var(--ink-soft);}
+/* --- 収益数字：巨大化 --- */
+.fv-profit{
+  position:relative;z-index:1;
+  text-align:center;font-size:18px;font-weight:900;color:var(--ink);
+  font-family:"Zen Maru Gothic",sans-serif;
+  margin:4px 0 22px;
+  line-height:1.2;
+}
+.fv-profit .money{
+  color:var(--gold);
+  font-size:62px;
+  letter-spacing:.01em;
+  display:inline-block;
+  text-shadow:0 2px 8px rgba(196,134,42,.22);
+}
+.fv-profit .money .unit{font-size:28px;vertical-align:0.15em;}
+.fv-profit .ast{display:block;font-size:11px;font-weight:500;color:var(--ink-soft);margin-top:2px;}
+/* --- 3冠バッジ（ゴールドグラデーション・リッチ化） --- */
+.fv .badge3{
+  position:relative;z-index:1;
+  display:flex;gap:10px;justify-content:center;margin-bottom:22px;
+}
+.fv .badge3 span{
+  width:98px;height:98px;border-radius:50%;
+  background:linear-gradient(145deg,#FFFDF4 0%, #FFF6DC 50%, #FDF0C4 100%);
+  border:2.5px solid transparent;
+  background-clip:padding-box;
+  outline:2.5px solid var(--gold);
+  outline-offset:0px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:10.5px;font-weight:700;color:var(--gold-deep);line-height:1.4;padding:8px;
+  box-shadow:
+    0 4px 14px rgba(196,134,42,.25),
+    inset 0 1px 3px rgba(255,255,255,.9);
+  transition:transform .2s ease, box-shadow .2s ease;
+  cursor:default;
+}
+.fv .badge3 span:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:
+    0 8px 20px rgba(196,134,42,.35),
+    inset 0 1px 3px rgba(255,255,255,.9);
+}
+/* 王冠装飾（::before 疑似要素） */
+.fv .badge3 span::before{
+  display:none;/* テキストコンテンツ内に位置を取れないため疑似要素は非表示。crown文字はHTMLで対応 */
+}
+/* --- リード文 --- */
+.fv .lead{
+  position:relative;z-index:1;
+  text-align:center;font-size:14.5px;font-weight:700;color:var(--green-deep);letter-spacing:.05em;
+}
+/* --- FV内の写真プレースホルダ（削除済み。クラスは他セクションで流用するため定義は残す） --- */
+.fv .ph{height:150px;margin-bottom:20px;}
+.fv .fv-note{text-align:center;font-size:10.5px;color:var(--ink-soft);}
+/* --- CTAボタン pulse アニメーション --- */
+@keyframes fv-pulse{
+  0%,100%{transform:scale(1);box-shadow:0 5px 0 #A9541B, 0 10px 18px rgba(208,106,36,.35);}
+  50%{transform:scale(1.03);box-shadow:0 6px 0 #A9541B, 0 14px 24px rgba(208,106,36,.45);}
+}
+.cta-wrap .cta-btn{
+  animation:fv-pulse 2.6s ease-in-out infinite;
+}
+/* reason/work は .fv スコープ外なので継続定義 */
 .reason>div:last-child{flex:1;}
 .reason-ph{height:84px;margin-top:10px;}
 .work-ph{height:92px;margin-top:12px;}
@@ -130,39 +245,6 @@ h3.lp-h .u{
   padding:10px 12px;font-size:12.5px;color:var(--ink);line-height:1.7;
 }
 .work-cap b{color:var(--green-deep);}
-.fv .badge3{
-  display:flex;gap:8px;justify-content:center;margin-bottom:18px;
-}
-.fv .badge3 span{
-  width:92px;height:92px;border-radius:50%;
-  background:#fff;border:2.5px solid var(--gold);
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  font-size:10px;font-weight:700;color:var(--gold-deep);line-height:1.45;padding:8px;
-}
-.fv .lead{
-  text-align:center;font-size:14.5px;font-weight:700;color:var(--green-deep);letter-spacing:.05em;
-}
-.fv h3.fv-copy{
-  font-family:"Zen Maru Gothic",sans-serif;
-  text-align:center;font-weight:900;color:var(--ink);
-  font-size:26px;line-height:1.55;margin:10px 0 6px;
-}
-.fv h3.fv-copy .zero{
-  color:var(--green-deep);font-size:44px;letter-spacing:.02em;
-}
-.fv h3.fv-copy .money{
-  color:var(--gold);font-size:40px;
-}
-.fv h3.fv-copy .small{font-size:16px;font-weight:700;color:var(--ink-soft);}
-.fv .fv-note{text-align:center;font-size:10.5px;color:var(--ink-soft);}
-.fv .fv-points{
-  display:flex;gap:8px;justify-content:center;margin:18px 0 20px;flex-wrap:wrap;
-}
-.fv .fv-points span{
-  background:#fff;border:1.5px solid var(--green-mid);color:var(--green-deep);
-  font-size:12.5px;font-weight:700;border-radius:999px;padding:5px 14px;
-}
-.fv .ph{height:150px;margin-bottom:20px;}
 /* ============ ②悩み ============ */
 .worry-list{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;}
 .worry{
@@ -474,9 +556,15 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
 .sticky-cta .cta-btn{max-width:400px;margin:0 auto;padding:14px 10px;font-size:16px;}
 .sticky-cta .cta-btn small{font-size:10.5px;}
 @media(max-width:520px){
-  .fv h3.fv-copy{font-size:22px;}
-  .fv h3.fv-copy .zero{font-size:36px;}
-  .fv h3.fv-copy .money{font-size:32px;}
+  .fv{padding:30px 18px 30px;}
+  .recruit-ribbon{font-size:13px;margin:0 20px 16px;}
+  .fv h3.fv-copy{font-size:23px;}
+  .fv h3.fv-copy .zero{font-size:38px;}
+  .fv h3.fv-copy .money{font-size:34px;}
+  .fv-profit .money{font-size:52px;}
+  .fv-profit .money .unit{font-size:24px;}
+  .fv .badge3 span{width:86px;height:86px;font-size:9.5px;padding:7px;}
+  .fv .fv-points span{font-size:11.5px;padding:4px 10px 4px 8px;}
 }
 </style>
 </head>
@@ -511,15 +599,14 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     </h3>
     <p class="fv-profit">年間利益<span class="money">3,000<span class="unit">万円</span></span>も可能</p>
     <div class="badge3">
-      <span>副業が初めての方に<br>おすすめの<br>副業新サービス<br>No.1</span>
-      <span>3冠バッジ②<br>（実データ<br>差し替え）</span>
-      <span>3冠バッジ③<br>（実データ<br>差し替え）</span>
+      <span>&#x1F451; 副業が初めての方に<br>おすすめの<br>副業新サービス<br><strong style="font-size:13px;">No.1</strong></span>
+      <span>&#x1F947; 3冠バッジ②<br>（実データ<br>差し替え）</span>
+      <span>&#x1F948; 3冠バッジ③<br>（実データ<br>差し替え）</span>
     </div>
-    <div class="ph" style="height:150px;">写真：穏やかな50代男性オーナーの<br>笑顔イメージ（or 保科様写真）</div>
   </section>
   <div class="cta-wrap">
     <p class="cta-micro">＼ 10秒で入力完了・しつこい営業はいたしません ／</p>
-    <a class="cta-btn" href="javascript:void(0)">無料で資料を受け取る<small>事業の仕組み・収益実績がわかる資料をお届けします</small></a>
+    <a class="cta-btn" href="#cta">無料で資料を受け取る<small>事業の仕組み・収益実績がわかる資料をお届けします</small></a>
   </div>
 </div>
 <p class="note"><b>制作メモ：</b>3冠バッジは<b>LPのみ使用可（広告バナー使用NG）</b>。テキストは現行の3冠文言を流用しデザインのみリニューアル。「年間利益3,000万円も可能」はご指示により注釈なしで掲載（景表法・Meta広告審査の観点で指摘が入った場合は注釈追加で対応できるよう、注釈文言は控えとして保持）。FV写真はいただく素材次第で保科様写真かフリー素材か判断。</p>
