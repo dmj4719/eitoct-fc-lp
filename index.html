@@ -190,35 +190,25 @@ h3.lp-h .u{
 }
 .fv-profit .money .unit{font-size:28px;vertical-align:0.15em;}
 .fv-profit .ast{display:block;font-size:11px;font-weight:500;color:var(--ink-soft);margin-top:2px;}
-/* --- 3冠バッジ（ゴールドグラデーション・リッチ化） --- */
+/* --- 3冠バッジ（画像版） --- */
 .fv .badge3{
   position:relative;z-index:1;
-  display:flex;gap:10px;justify-content:center;margin-bottom:22px;
+  display:flex;gap:6px;justify-content:center;margin-bottom:22px;
 }
-.fv .badge3 span{
-  width:98px;height:98px;border-radius:50%;
-  background:linear-gradient(145deg,#FFFDF4 0%, #FFF6DC 50%, #FDF0C4 100%);
-  border:2.5px solid transparent;
-  background-clip:padding-box;
-  outline:2.5px solid var(--gold);
-  outline-offset:0px;
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  font-size:10.5px;font-weight:700;color:var(--gold-deep);line-height:1.4;padding:8px;
-  box-shadow:
-    0 4px 14px rgba(196,134,42,.25),
-    inset 0 1px 3px rgba(255,255,255,.9);
-  transition:transform .2s ease, box-shadow .2s ease;
-  cursor:default;
+.fv .badge3 img{
+  width:120px;height:120px;object-fit:contain;
+  transition:transform .2s ease;
 }
-.fv .badge3 span:hover{
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:
-    0 8px 20px rgba(196,134,42,.35),
-    inset 0 1px 3px rgba(255,255,255,.9);
+.fv .badge3 img:hover{transform:scale(1.06);}
+/* --- FV写真 --- */
+.fv-hero{
+  position:relative;z-index:1;
+  width:calc(100% + 52px);margin:0 -26px;
+  overflow:hidden;
 }
-/* 王冠装飾（::before 疑似要素） */
-.fv .badge3 span::before{
-  display:none;/* テキストコンテンツ内に位置を取れないため疑似要素は非表示。crown文字はHTMLで対応 */
+.fv-hero img{
+  width:100%;height:200px;object-fit:cover;object-position:center 20%;
+  display:block;
 }
 /* --- リード文 --- */
 .fv .lead{
@@ -563,7 +553,7 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   .fv h3.fv-copy .money{font-size:34px;}
   .fv-profit .money{font-size:52px;}
   .fv-profit .money .unit{font-size:24px;}
-  .fv .badge3 span{width:86px;height:86px;font-size:9.5px;padding:7px;}
+  .fv .badge3 img{width:100px;height:100px;}
   .fv .fv-points span{font-size:11.5px;padding:4px 10px 4px 8px;}
 }
 </style>
@@ -599,9 +589,12 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     </h3>
     <p class="fv-profit">年間利益<span class="money">3,000<span class="unit">万円</span></span>も可能</p>
     <div class="badge3">
-      <span>&#x1F451; 副業が初めての方に<br>おすすめの<br>副業新サービス<br><strong style="font-size:13px;">No.1</strong></span>
-      <span>&#x1F947; 3冠バッジ②<br>（実データ<br>差し替え）</span>
-      <span>&#x1F948; 3冠バッジ③<br>（実データ<br>差し替え）</span>
+      <img src="img/badge1.png" alt="友人に紹介したい副業支援サービス No.1" width="120" height="120">
+      <img src="img/badge2.png" alt="安心・信頼の副業支援サービス No.1" width="120" height="120">
+      <img src="img/badge3.png" alt="副業が初めての方におすすめの副業支援サービス No.1" width="120" height="120">
+    </div>
+    <div class="fv-hero">
+      <img src="img/fv-hero.png" alt="自宅で副業に取り組むオーナーイメージ" width="480" height="200">
     </div>
   </section>
   <div class="cta-wrap">
