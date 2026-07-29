@@ -227,7 +227,6 @@ h3.lp-h .u{
   animation:fv-pulse 2.6s ease-in-out infinite;
 }
 /* reason/work は .fv スコープ外なので継続定義 */
-.reason>div:last-child{flex:1;}
 .reason-ph{height:84px;margin-top:10px;}
 .work-ph{height:92px;margin-top:12px;}
 .work-cap{
@@ -336,18 +335,19 @@ h3.lp-h .u{
   display:block;font-size:18px;font-weight:900;color:var(--green-deep);margin-top:4px;
 }
 /* ============ ④理由 ============ */
-.reason{display:flex;flex-wrap:wrap;gap:14px;background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;
+.reason{background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;
   border:1px solid var(--line);box-shadow:0 3px 10px rgba(30,60,50,.06);}
+.reason .r-head{display:flex;gap:12px;align-items:center;margin-bottom:6px;}
 .reason .r-num{
-  flex-shrink:0;width:44px;height:44px;border-radius:50%;
+  flex-shrink:0;width:40px;height:40px;border-radius:50%;
   background:var(--green-deep);color:#fff;display:flex;align-items:center;justify-content:center;
-  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:19px;
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:18px;
 }
-.reason h4{font-size:16.5px;font-weight:900;color:var(--green-deep);line-height:1.5;margin-bottom:4px;}
+.reason h4{font-size:16px;font-weight:900;color:var(--green-deep);line-height:1.45;flex:1;min-width:0;}
 .reason h4 em{font-style:normal;color:var(--gold);}
 .reason p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
 .reason p b{color:var(--ink);}
-.reason-img{text-align:center;margin-top:4px;width:100%;flex-basis:100%;}
+.reason-img{text-align:center;margin-top:6px;}
 .reason-img img{width:180px;height:auto;display:block;margin:0 auto;}
 /* ============ ⑤収益 ============ */
 .income-card{
@@ -765,27 +765,23 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     <span class="eyebrow">REASON</span>
     <h3 class="lp-h">この副業人材マッチングが<br><span class="u">選ばれる理由</span></h3>
     <div class="reason">
-      <div class="r-num">1</div>
-      <div><h4>固定費<em>0円</em>。だから低リスク</h4>
-      <p>店舗・在庫・従業員は一切不要。<br><b>毎月の支払いに追われない！</b></p></div>
+      <div class="r-head"><div class="r-num">1</div><h4>固定費<em>0円</em>。だから低リスク</h4></div>
+      <p>店舗・在庫・従業員は一切不要。<br><b>毎月の支払いに追われない！</b></p>
       <div class="reason-img"><img src="img/reason1.png" alt="固定費ゼロ"></div>
     </div>
     <div class="reason">
-      <div class="r-num">2</div>
-      <div><h4>案件は本部が<em>500件以上</em>ご用意</h4>
-      <p>常時約50ジャンル・500件以上。<br><b>案件開拓の営業は一切必要なし！</b></p></div>
+      <div class="r-head"><div class="r-num">2</div><h4>案件は本部が<em>500件以上</em>ご用意</h4></div>
+      <p>常時約50ジャンル・500件以上。<br><b>案件開拓の営業は一切必要なし！</b></p>
       <div class="reason-img"><img src="img/reason2.png" alt="500件以上の案件"></div>
     </div>
     <div class="reason">
-      <div class="r-num">3</div>
-      <div><h4>作業は<em>スキマ時間</em>でOK</h4>
-      <p>日々の作業は集客とおつなぎ作業のみ。<br><b>スキマの1日1時間からスタート可能！</b></p></div>
+      <div class="r-head"><div class="r-num">3</div><h4>作業は<em>スキマ時間</em>でOK</h4></div>
+      <p>日々の作業は集客とおつなぎ作業のみ。<br><b>スキマの1日1時間からスタート可能！</b></p>
       <div class="reason-img"><img src="img/reason3.png" alt="スキマ時間"></div>
     </div>
     <div class="reason">
-      <div class="r-num">4</div>
-      <div><h4>集客ノウハウも<em>人脈</em>もご提供</h4>
-      <p>SNSでの副業人材の集客方法を個別レクチャー。<br><b>人脈がない方には集客協力者をご紹介！</b></p></div>
+      <div class="r-head"><div class="r-num">4</div><h4>集客ノウハウも<em>人脈</em>もご提供</h4></div>
+      <p>SNSでの副業人材の集客方法を個別レクチャー。<br><b>人脈がない方には集客協力者をご紹介！</b></p>
       <div class="reason-img"><img src="img/reason4.png" alt="サポート"></div>
     </div>
   </section>
