@@ -347,8 +347,8 @@ h3.lp-h .u{
 .reason h4 em{font-style:normal;color:var(--gold);}
 .reason p{font-size:13px;color:var(--ink-soft);line-height:1.7;}
 .reason p b{color:var(--ink);}
-.reason-img{text-align:center;margin-top:10px;}
-.reason-img img{width:120px;height:auto;}
+.reason-img{text-align:center;margin-top:12px;clear:both;}
+.reason-img img{width:180px;height:auto;display:block;margin:0 auto;}
 /* ============ ⑤収益 ============ */
 .income-card{
   background:#fff;border-radius:14px;border:1.5px solid var(--line);
@@ -604,16 +604,19 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
 .doc-head,.sec-label,.note,.sticky-note,.doc-end{display:none!important;}
 /* ===== 追従CTA ===== */
 .sticky-cta{
-  position:fixed;bottom:0;left:0;right:0;z-index:999;
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:480px;z-index:999;
   background:linear-gradient(180deg,#1a4f42 0%,#163f35 100%);
   padding:0;text-align:center;
   box-shadow:0 -4px 20px rgba(0,0,0,.25);
+  border-radius:12px 12px 0 0;
 }
 /* 上段：マイクロコピー吹き出し */
 .sticky-cta .sticky-micro{
   background:var(--gold);color:#fff;
   font-size:12px;font-weight:700;letter-spacing:.06em;
   padding:5px 10px;
+  border-radius:12px 12px 0 0;
 }
 /* 下段：ボタンエリア */
 .sticky-cta .sticky-body{
