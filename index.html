@@ -228,7 +228,12 @@ h3.lp-h .u{
 }
 /* reason/work は .fv スコープ外なので継続定義 */
 .reason-ph{height:84px;margin-top:10px;}
-.work-ph{height:92px;margin-top:12px;}
+.work-ph{display:none;}
+.work-img{text-align:center;margin-top:12px;}
+.work-img img{width:200px;height:auto;display:block;margin:0 auto;}
+.work-img.line-img{display:flex;align-items:center;justify-content:center;gap:10px;}
+.work-img.line-img img{width:60px;}
+.work-img.line-img .line-text{font-size:13px;color:var(--ink-soft);text-align:left;line-height:1.6;}
 .work-cap{
   margin-top:10px;background:var(--green-soft);border-radius:8px;
   padding:10px 12px;font-size:12.5px;color:var(--ink);line-height:1.7;
@@ -810,7 +815,7 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
         <span class="tag">あなたの仕事</span>
         <h4>② 副業したい人を集める</h4>
         <p>SNS（Instagram・X・Threads）の投稿、または1日1件のオンライン面談。</p>
-        <div class="ph work-ph">イラスト：SNS投稿／オンライン面談で人が集まるイメージ</div>
+        <div class="work-img"><img src="img/work-sns.png" alt="SNSで副業人材が集まるイメージ"></div>
         <p class="work-cap">「どうやって集めるの？」もご安心ください。<b>集め方のノウハウは、すべて本部が共有します。</b></p>
       </div>
       <div class="work you">
@@ -818,7 +823,7 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
         <span class="tag">あなたの仕事</span>
         <h4>③ LINEでおつなぎする</h4>
         <p>連絡が来たら、<b>LINEで案件企業の担当者につなぐだけ。</b>その後の説明・サポート・報酬支払いはすべて案件企業が行います。</p>
-        <div class="ph work-ph">イラスト：LINEで「おつなぎするだけ」のイメージ</div>
+        <div class="work-img line-img"><img src="img/line-logo.png" alt="LINE"><span class="line-text">LINEで案件企業の担当者に<br>おつなぎするだけ</span></div>
         <p class="work-cap"><b>案件企業から相談が届くので、副業人材をご紹介するだけ。</b>難しい調整や交渉は必要ありません。</p>
       </div>
     </div>
