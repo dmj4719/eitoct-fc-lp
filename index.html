@@ -304,9 +304,15 @@ h3.lp-h .u{
   text-align:center;font-size:11.5px;font-weight:700;color:var(--ink);line-height:1.4;
   border:1.5px solid var(--line);
 }
-.scheme-box .s-icon{display:block;font-size:22px;margin-bottom:4px;}
+.scheme-box .s-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;margin:0 auto 6px;
+  background:var(--green-soft);
+}
+.scheme-box .s-icon svg{width:18px;height:18px;fill:var(--green-deep);}
 .scheme-box.you{background:var(--green-deep);color:#fff;box-shadow:0 3px 12px rgba(30,92,76,.25);border-color:transparent;}
-.scheme-box.you .s-icon{filter:brightness(10);}
+.scheme-box.you .s-icon{background:rgba(255,255,255,.2);}
+.scheme-box.you .s-icon svg{fill:#fff;}
 .scheme-arrow{font-size:16px;color:var(--green-mid);font-weight:900;}
 .scheme-money{
   text-align:center;margin-top:14px;font-size:14px;font-weight:700;
@@ -730,11 +736,11 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     </p>
     <div class="scheme">
       <div class="scheme-row">
-        <div class="scheme-box"><span class="s-icon">👥</span>副業したい人<br><small style="font-weight:400;">（ユーザー）</small></div>
+        <div class="scheme-box"><span class="s-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>副業したい人<br><small style="font-weight:400;">（ユーザー）</small></div>
         <div class="scheme-arrow">⇄</div>
-        <div class="scheme-box you"><span class="s-icon">🧑</span>あなた<br><small style="font-weight:400;">（加盟オーナー）</small></div>
+        <div class="scheme-box you"><span class="s-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>あなた<br><small style="font-weight:400;">（加盟オーナー）</small></div>
         <div class="scheme-arrow">⇄</div>
-        <div class="scheme-box"><span class="s-icon">🏢</span>案件企業<br><small style="font-weight:400;">（本部が用意）</small></div>
+        <div class="scheme-box"><span class="s-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></span>案件企業<br><small style="font-weight:400;">（本部が用意）</small></div>
       </div>
       <p class="scheme-money">紹介1件ごとに <span class="y">紹介料</span> があなたの売上に</p>
     </div>
