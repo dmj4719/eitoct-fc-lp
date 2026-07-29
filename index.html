@@ -393,7 +393,25 @@ h3.lp-h .u{
   border-radius:999px;padding:2px 16px;white-space:nowrap;
 }
 .income-note{font-size:10.5px;color:var(--ink-soft);text-align:center;}
-.graph-ph{height:170px;margin:6px 0 14px;}
+/* 棒グラフ */
+.bar-chart{margin:10px 0 14px;}
+.bar-chart-title{
+  font-size:13px;font-weight:700;color:var(--green-deep);text-align:center;
+  margin-bottom:10px;font-family:"Zen Maru Gothic",sans-serif;
+}
+.bar-chart-body{display:flex;align-items:flex-end;justify-content:center;gap:8px;height:160px;padding:0 10px;}
+.bar-col{
+  flex:1;max-width:52px;display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.bar-col .bar-val{font-size:11px;font-weight:900;color:var(--gold-deep);}
+.bar-col .bar{
+  width:100%;border-radius:6px 6px 0 0;
+  background:linear-gradient(180deg,var(--cta) 0%,var(--cta-deep) 100%);
+  min-height:4px;
+  transition:height .6s ease;
+}
+.bar-col .bar-label{font-size:10px;color:var(--ink-soft);font-weight:500;white-space:nowrap;}
+.bar-chart-unit{font-size:10px;color:var(--ink-soft);text-align:right;margin-top:4px;}
 /* ============ ⑥仕事内容 ============ */
 .work3{display:flex;flex-direction:column;gap:12px;}
 .work{border-radius:14px;padding:18px;border:1px solid var(--line);background:#fff;position:relative;}
@@ -891,7 +909,18 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
       <span class="cond">継続的に取り組んだ加盟店</span>
       <p class="val">年間利益 <span class="n">3,000</span><span class="unit">万円</span></p>
     </div>
-    <div class="ph graph-ph">グラフ：加盟店の利益推移<br>（本部提供PDFの実績グラフ2点を<br>デザインリメイクして掲載）</div>
+    <div class="bar-chart">
+      <p class="bar-chart-title">売上累計の推移（初年度実績）</p>
+      <div class="bar-chart-body">
+        <div class="bar-col"><span class="bar-val">153</span><div class="bar" style="height:7px;"></div><span class="bar-label">1ヶ月目</span></div>
+        <div class="bar-col"><span class="bar-val">382</span><div class="bar" style="height:17px;"></div><span class="bar-label">2ヶ月目</span></div>
+        <div class="bar-col"><span class="bar-val">820</span><div class="bar" style="height:37px;"></div><span class="bar-label">4ヶ月目</span></div>
+        <div class="bar-col"><span class="bar-val">1,390</span><div class="bar" style="height:63px;"></div><span class="bar-label">6ヶ月目</span></div>
+        <div class="bar-col"><span class="bar-val">2,611</span><div class="bar" style="height:118px;"></div><span class="bar-label">9ヶ月目</span></div>
+        <div class="bar-col"><span class="bar-val">3,526</span><div class="bar" style="height:160px;"></div><span class="bar-label">12ヶ月目</span></div>
+      </div>
+      <p class="bar-chart-unit">（万円）</p>
+    </div>
     <p class="income-note">※いずれも実際の実績に基づきます。成果を保証するものではなく、取り組み時間・活動内容により異なります。</p>
   </section>
 </div>
