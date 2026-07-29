@@ -236,12 +236,12 @@ h3.lp-h .u{
 }
 .work-cap b{color:var(--green-deep);}
 /* ============ ②悩み ============ */
-.worry-list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px;}
+.worry-list{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
 .worry{
-  background:#fff;border:none;border-radius:16px;
-  padding:16px 18px;position:relative;font-size:15px;font-weight:500;
+  background:#fff;border:none;border-radius:14px;
+  padding:12px 16px;position:relative;font-size:14px;font-weight:500;
   box-shadow:0 3px 12px rgba(30,60,50,.08);
-  max-width:85%;line-height:1.6;
+  max-width:82%;line-height:1.5;
 }
 /* 吹き出し三角 */
 .worry::after{
@@ -262,7 +262,7 @@ h3.lp-h .u{
   text-align:center;font-family:"Zen Maru Gothic",sans-serif;font-weight:900;
   font-size:18px;color:#fff;line-height:1.7;
   background:linear-gradient(135deg,var(--green-deep) 0%,#2D7A60 100%);
-  border-radius:16px;padding:24px 20px;
+  border-radius:16px;padding:20px 18px;
   box-shadow:0 4px 16px rgba(30,92,76,.25);
 }
 .worry-answer .big{
@@ -271,64 +271,63 @@ h3.lp-h .u{
   padding:0 3px;
 }
 /* イラスト */
-.worry-illust{text-align:center;margin:10px 0 0;}
-.worry-illust img{width:160px;height:auto;opacity:.7;}
+.worry-illust{text-align:center;margin:6px 0 0;}
+.worry-illust img{width:200px;height:auto;opacity:1;}
 .arrow-down{
-  width:0;height:0;margin:20px auto;
-  border-left:22px solid transparent;border-right:22px solid transparent;
-  border-top:18px solid var(--green-mid);
+  width:0;height:0;margin:14px auto;
+  border-left:20px solid transparent;border-right:20px solid transparent;
+  border-top:16px solid var(--green-mid);
 }
 /* ============ ③仕組み図解 ============ */
-/* ABOUT背景：リッチなグリーン系 */
+/* ABOUT背景：白ベースにアクセント */
 .lp-sec.about-sec{
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(62,138,110,.10) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 10% 90%, rgba(30,92,76,.08) 0%, transparent 60%),
-    linear-gradient(170deg,#F0F7F3 0%, #E4F0EA 35%, #D8EAE0 65%, #CFDED6 100%);
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(30,92,76,.06) 0%, transparent 70%),
+    linear-gradient(170deg,#FAFCFB 0%, #F4F8F6 50%, #EFF4F2 100%);
   position:relative;overflow:hidden;
 }
 .lp-sec.about-sec::before{
   content:"";position:absolute;inset:0;
   background-image:
-    linear-gradient(120deg, rgba(30,92,76,.04) 1px, transparent 1px),
-    linear-gradient(240deg, rgba(30,92,76,.04) 1px, transparent 1px);
+    linear-gradient(120deg, rgba(30,92,76,.03) 1px, transparent 1px),
+    linear-gradient(240deg, rgba(30,92,76,.03) 1px, transparent 1px);
   background-size:32px 56px;
   pointer-events:none;
 }
-.lp-sec.about-sec::after{
-  content:"";position:absolute;top:-40px;right:-40px;
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle, rgba(62,138,110,.10) 0%, transparent 65%);
-  pointer-events:none;
-}
 .lp-sec.about-sec *{position:relative;z-index:1;}
-.scheme{background:#fff;border:2px solid var(--green-mid);border-radius:16px;padding:24px 16px;
-  box-shadow:0 4px 16px rgba(30,92,76,.10);}
-.scheme-row{display:flex;align-items:center;justify-content:space-between;gap:6px;}
+/* スキーム図 */
+.scheme{background:#fff;border:2px solid var(--line);border-radius:16px;padding:24px 14px;
+  box-shadow:0 4px 16px rgba(30,60,50,.08);}
+.scheme-row{display:flex;align-items:center;justify-content:space-between;gap:5px;}
 .scheme-box{
-  flex:1;background:var(--green-soft);border-radius:12px;padding:14px 6px;
-  text-align:center;font-size:12px;font-weight:700;color:var(--green-deep);line-height:1.5;
-  border:1.5px solid rgba(30,92,76,.12);
+  flex:1;background:#F6F9F7;border-radius:12px;padding:10px 6px;
+  text-align:center;font-size:11.5px;font-weight:700;color:var(--ink);line-height:1.4;
+  border:1.5px solid var(--line);
 }
-.scheme-box.you{background:var(--green-deep);color:#fff;box-shadow:0 3px 12px rgba(30,92,76,.30);border-color:transparent;}
-.scheme-arrow{font-size:18px;color:var(--green-mid);font-weight:900;}
+.scheme-box .s-icon{display:block;font-size:22px;margin-bottom:4px;}
+.scheme-box.you{background:var(--green-deep);color:#fff;box-shadow:0 3px 12px rgba(30,92,76,.25);border-color:transparent;}
+.scheme-box.you .s-icon{filter:brightness(10);}
+.scheme-arrow{font-size:16px;color:var(--green-mid);font-weight:900;}
 .scheme-money{
-  text-align:center;margin-top:16px;font-size:14px;font-weight:700;
+  text-align:center;margin-top:14px;font-size:14px;font-weight:700;
 }
-.scheme-money .y{color:var(--green-deep);font-size:22px;font-weight:900;}
-/* 安心バナー */
-.about-assurance{
-  background:var(--green-deep);color:#fff;border-radius:14px;
-  padding:20px 18px;margin-top:20px;text-align:center;
-  font-size:13.5px;line-height:1.9;
-  box-shadow:0 4px 14px rgba(30,92,76,.20);
+.scheme-money .y{color:var(--green-deep);font-size:20px;font-weight:900;}
+/* 安心タグ行 */
+.about-tags{
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:18px;
 }
-.about-assurance b{font-size:16px;display:block;margin-bottom:4px;}
-.about-assurance .safe{
-  display:inline-block;margin-top:6px;
-  font-family:"Zen Maru Gothic",sans-serif;font-size:18px;font-weight:900;
-  background:linear-gradient(transparent 60%,rgba(255,255,255,.2) 60%);
-  padding:0 4px;
+.about-tags span{
+  background:#fff;border:1.5px solid var(--green-mid);color:var(--green-deep);
+  font-size:11px;font-weight:700;border-radius:999px;padding:5px 12px;
+  white-space:nowrap;
+}
+/* 安心メッセージ */
+.about-safe{
+  text-align:center;margin-top:14px;
+  font-family:"Zen Maru Gothic",sans-serif;font-size:13px;color:var(--ink-soft);
+}
+.about-safe b{
+  display:block;font-size:18px;font-weight:900;color:var(--green-deep);margin-top:4px;
 }
 /* ============ ④理由 ============ */
 .reason{display:flex;gap:14px;background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;
@@ -731,19 +730,18 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     </p>
     <div class="scheme">
       <div class="scheme-row">
-        <div class="scheme-box">副業したい人<br><small style="font-weight:400;">（ユーザー）</small></div>
+        <div class="scheme-box"><span class="s-icon">👥</span>副業したい人<br><small style="font-weight:400;">（ユーザー）</small></div>
         <div class="scheme-arrow">⇄</div>
-        <div class="scheme-box you">あなた<br><small style="font-weight:400;">（加盟オーナー）</small></div>
+        <div class="scheme-box you"><span class="s-icon">🧑</span>あなた<br><small style="font-weight:400;">（加盟オーナー）</small></div>
         <div class="scheme-arrow">⇄</div>
-        <div class="scheme-box">案件企業<br><small style="font-weight:400;">（本部が用意）</small></div>
+        <div class="scheme-box"><span class="s-icon">🏢</span>案件企業<br><small style="font-weight:400;">（本部が用意）</small></div>
       </div>
       <p class="scheme-money">紹介1件ごとに <span class="y">紹介料</span> があなたの売上に</p>
     </div>
-    <div class="about-assurance">
-      <b>案件の開拓・ユーザーへの説明・<br>サポート・報酬支払いは</b>
-      すべて本部と案件企業が対応。<br>
-      <span class="safe">だから、はじめてでも安心です。</span>
+    <div class="about-tags">
+      <span>案件開拓</span><span>ユーザーへの説明</span><span>サポート</span><span>報酬支払い</span>
     </div>
+    <p class="about-safe">すべて本部と案件企業が対応。<b>だから、はじめてでも安心です。</b></p>
   </section>
 </div>
 <p class="note"><b>制作メモ：</b>「仕組みのイメージが湧かず面談に至らない」が既存LPの最大課題（ヒアリング確定事項）。図版はデザイナー制作のオリジナルイラストで、専門用語（マッチング／スキーム等）を使わず表現します。</p>
