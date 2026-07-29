@@ -539,12 +539,38 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
 /* ===== 追従CTA ===== */
 .sticky-cta{
   position:fixed;bottom:0;left:0;right:0;z-index:999;
-  background:rgba(30,92,76,.95);backdrop-filter:blur(6px);
-  padding:10px 16px;text-align:center;
-  box-shadow:0 -2px 12px rgba(0,0,0,.15);
+  background:linear-gradient(180deg,#1a4f42 0%,#163f35 100%);
+  padding:0;text-align:center;
+  box-shadow:0 -4px 20px rgba(0,0,0,.25);
 }
-.sticky-cta .cta-btn{max-width:400px;margin:0 auto;padding:14px 10px;font-size:16px;}
-.sticky-cta .cta-btn small{font-size:10.5px;}
+/* 上段：マイクロコピー吹き出し */
+.sticky-cta .sticky-micro{
+  background:var(--gold);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  padding:5px 10px;
+}
+/* 下段：ボタンエリア */
+.sticky-cta .sticky-body{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:10px 16px 12px;
+}
+/* 簡単10秒バッジ */
+.sticky-cta .sticky-badge{
+  flex-shrink:0;width:52px;height:52px;
+  border-radius:50%;border:2px solid rgba(255,255,255,.5);
+  background:rgba(255,255,255,.12);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;line-height:1.1;
+}
+.sticky-cta .sticky-badge .s-label{font-size:9px;font-weight:500;opacity:.85;}
+.sticky-cta .sticky-badge .s-num{font-size:18px;font-weight:900;font-family:"Zen Maru Gothic",sans-serif;}
+.sticky-cta .sticky-badge .s-unit{font-size:9px;font-weight:500;opacity:.85;}
+/* CTAボタン */
+.sticky-cta .cta-btn{
+  flex:1;max-width:320px;padding:14px 10px;font-size:17px;
+  animation:fv-pulse 2.6s ease-in-out infinite;
+}
+.sticky-cta .cta-btn small{font-size:10px;}
 @media(max-width:520px){
   .fv{padding:30px 18px 30px;}
   .recruit-ribbon{font-size:13px;margin:0 20px 16px;}
@@ -1079,7 +1105,15 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
 
 <!-- 追従CTA -->
 <div class="sticky-cta">
-  <a class="cta-btn" href="#form">無料で資料を受け取る<small>10秒で入力完了・しつこい営業はいたしません</small></a>
+  <div class="sticky-micro">収益の仕組み・実績データがわかる資料を無料でお届け</div>
+  <div class="sticky-body">
+    <div class="sticky-badge">
+      <span class="s-label">簡単</span>
+      <span class="s-num">10</span>
+      <span class="s-unit">秒</span>
+    </div>
+    <a class="cta-btn" href="#form">無料で資料を受け取る<small>しつこい営業はいたしません</small></a>
+  </div>
 </div>
 
 </body>
