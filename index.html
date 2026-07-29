@@ -463,17 +463,23 @@ h3.lp-h .u{
   font-size:13.5px;font-weight:900;color:var(--green-deep);text-align:center;margin-bottom:10px;
   font-family:"Zen Maru Gothic",sans-serif;
 }
-.wp-list{list-style:none;}
-.wp-list li{
-  background:#fff;border:1px solid #EDE3CC;border-radius:10px;
-  padding:10px 12px 10px 38px;margin-bottom:8px;position:relative;
-  font-size:12.5px;font-weight:500;line-height:1.6;
+.wp-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.wp-item{
+  background:#fff;border:1px solid #EDE3CC;border-radius:12px;
+  padding:14px 14px 12px;
 }
-.wp-list li::before{
-  content:"✓";position:absolute;left:13px;top:9px;
-  color:var(--gold);font-weight:900;font-size:15px;
+.wp-item .wp-tag{
+  display:inline-block;background:var(--gold);color:#fff;
+  font-size:11px;font-weight:700;border-radius:999px;padding:3px 12px;
+  margin-bottom:6px;letter-spacing:.04em;
 }
-.wp-list li b{color:var(--gold-deep);}
+.wp-item .wp-main{
+  font-size:15px;font-weight:900;color:var(--ink);line-height:1.5;
+}
+.wp-item .wp-main b{color:var(--gold-deep);}
+.wp-item .wp-sub{
+  font-size:11.5px;color:var(--ink-soft);margin-top:3px;
+}
 .wp-note{font-size:10.5px;color:var(--ink-soft);text-align:center;margin-top:8px;}
 /* ============ ⑦案件例 ============ */
 .case{background:#fff;border-radius:14px;border:1px solid var(--line);padding:18px;margin-bottom:14px;}
@@ -888,11 +894,23 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
         <img src="img/wp-cover-right.png" alt="立ち上げ1年間の会員数と売上の遷移">
       </div>
       <p class="wp-what">＼ 何がもらえるの？ ／</p>
-      <ul class="wp-list">
-        <li><b>実際に人が集まったSNS投稿テンプレート</b>（X・Threads対応。真似して投稿するだけ）</li>
-        <li><b>1日1アポにつながる声かけ・面談トークスクリプト</b>（リアルの人脈で集めたい方向け）</li>
-        <li><b>集客協力者のご紹介</b>（人脈ゼロの方はここからスタートできます）</li>
-      </ul>
+      <div class="wp-list">
+        <div class="wp-item">
+          <span class="wp-tag">真似して投稿するだけ！</span>
+          <p class="wp-main">実際に副業人材が集まった<br>SNS投稿テンプレート</p>
+          <p class="wp-sub">（X・Threads対応。）</p>
+        </div>
+        <div class="wp-item">
+          <span class="wp-tag">1日1アポ！</span>
+          <p class="wp-main">副業人材への<br>声かけ・面談トークスクリプト</p>
+          <p class="wp-sub">（リアルの人脈で集めたい方向け）</p>
+        </div>
+        <div class="wp-item">
+          <span class="wp-tag">人脈ゼロでも安心！</span>
+          <p class="wp-main">人脈に強みを持つ<br>集客協力者のご紹介</p>
+          <p class="wp-sub">（人脈ゼロでもここからスタートできます）</p>
+        </div>
+      </div>
       <p class="wp-note">※特典は加盟オーナー様への提供内容です。詳細は個別面談でご案内します。</p>
     </div>
   </section>
