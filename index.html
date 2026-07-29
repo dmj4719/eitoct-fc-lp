@@ -673,7 +673,9 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   padding:0;text-align:center;
   box-shadow:0 -4px 20px rgba(0,0,0,.25);
   border-radius:12px 12px 0 0;
+  transition:opacity .4s ease,visibility .4s ease;
 }
+.sticky-cta.hidden{opacity:0;visibility:hidden;pointer-events:none;}
 /* 上段：マイクロコピー吹き出し */
 .sticky-cta .sticky-micro{
   background:var(--gold);color:#fff;
@@ -1154,7 +1156,7 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   <section class="lp-sec bg-cream">
     <span class="eyebrow">FAQ</span>
     <h3 class="lp-h">よくあるご質問</h3>
-    <details class="faq" open>
+    <details class="faq">
       <summary>加盟店が増えたら、案件を取り合いになりませんか？</summary>
       <p class="a">なりません。ご紹介する案件はすべて<b>人数・期間の制限がないもののみ</b>を厳選しています。何名が取り組んでも案件がなくなることはありません。</p>
     </details>
@@ -1230,5 +1232,18 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   </div>
 </div>
 
+<script>
+(function(){
+  var cta=document.querySelector('.sticky-cta');
+  var form=document.getElementById('form');
+  if(!cta||!form)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      cta.classList.toggle('hidden',e.isIntersecting);
+    });
+  },{threshold:0.1});
+  io.observe(form);
+})();
+</script>
 </body>
 </html>
