@@ -401,7 +401,7 @@ h3.lp-h .u{
 }
 .bar-chart-title{
   font-size:13px;font-weight:700;color:var(--green-deep);text-align:center;
-  margin-bottom:12px;font-family:"Zen Maru Gothic",sans-serif;
+  margin-bottom:42px;font-family:"Zen Maru Gothic",sans-serif;
 }
 .bar-chart-body{
   display:flex;align-items:flex-end;justify-content:center;gap:8px;
@@ -556,17 +556,32 @@ h3.lp-h .u{
 .voice p{font-size:13px;}
 .voice p b{background:linear-gradient(transparent 62%,#F5D9A8 62%);}
 /* ============ ⑩代表 ============ */
-.ceo{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px;}
-.ceo .ph{width:120px;height:150px;flex-shrink:0;}
-.ceo-name{font-size:12px;color:var(--ink-soft);}
-.ceo-name b{display:block;font-size:16px;color:var(--ink);}
-.ceo-msg{font-size:13.5px;}
+.ceo-photo{
+  width:calc(100% + 52px);margin:-44px -26px 0;overflow:hidden;
+}
+.ceo-photo img{width:100%;height:300px;object-fit:cover;object-position:center 15%;display:block;}
+.ceo-profile{text-align:center;margin:18px 0 16px;}
+.ceo-profile .ceo-title{font-size:12px;color:var(--ink-soft);}
+.ceo-profile .ceo-name{
+  font-family:"Zen Maru Gothic",sans-serif;font-size:22px;font-weight:900;
+  color:var(--ink);margin-top:2px;
+}
+.ceo-msg{
+  font-size:14px;line-height:2;color:var(--ink);
+  background:#F8FAF9;border-radius:14px;padding:20px 18px;
+  border:1px solid var(--line);margin-bottom:14px;
+}
 .ceo-msg b{color:var(--green-deep);}
 .ceo-history{
-  background:#fff;border-radius:12px;padding:14px 16px;font-size:12.5px;color:var(--ink-soft);
-  border:1px solid var(--line);
+  display:flex;gap:0;justify-content:center;flex-wrap:wrap;
 }
-.ceo-history b{color:var(--gold-deep);font-size:15px;}
+.ceo-history span{
+  font-size:12px;color:var(--ink-soft);font-weight:500;
+  padding:5px 12px;border:1px solid var(--line);background:#fff;
+}
+.ceo-history span:first-child{border-radius:8px 0 0 8px;}
+.ceo-history span:last-child{border-radius:0 8px 8px 0;}
+.ceo-history span b{color:var(--gold-deep);font-size:14px;}
 /* ============ ⑪プラン ============ */
 .plan{background:#fff;border-radius:16px;padding:22px 18px;margin-bottom:16px;border:1.5px solid var(--line);text-align:center;}
 .plan.osusume{border:3px solid var(--gold);position:relative;background:#FFFCF5;}
@@ -1105,43 +1120,26 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   <section class="lp-sec">
     <span class="eyebrow">MESSAGE</span>
     <h3 class="lp-h">代表よりご挨拶</h3>
-    <div class="ceo">
-      <div class="ph">保科様<br>宣材写真</div>
-      <div>
-        <p class="ceo-name">株式会社eito.ct 代表<b>保科 拓也</b></p>
-        <p class="ceo-msg" style="margin-top:8px;">「私がこの事業で大切にしているのは、<b>数を増やすことではなく、案件を精査すること</b>。本当に良いものだけを、加盟オーナーの皆さまとそのユーザーさまにお届けしたいと考えています。」</p>
-      </div>
+    <div class="ceo-photo">
+      <img src="img/ceo.jpg" alt="株式会社eito.ct 代表 保科 拓也" width="480" height="300">
     </div>
-    <p class="ceo-msg" style="margin-bottom:16px;">「派手さはありませんが、<b>14年間この事業と向き合ってきました</b>。穏やかで誠実な方々にご加盟いただき、長くお付き合いできることが何よりの喜びです。まずは資料だけでも、お気軽にご覧ください。」</p>
-    <div class="ceo-history">事業歴 <b>14年</b>｜本部実績：年間利益 <b>3,000万円以上</b>｜案件精査を最重視する運営方針</div>
+    <div class="ceo-profile">
+      <p class="ceo-title">株式会社eito.ct 代表</p>
+      <p class="ceo-name">保科 拓也</p>
+    </div>
+    <div class="ceo-msg">
+      「私がこの事業で大切にしているのは、<b>数を増やすことではなく、案件を精査すること</b>。本当に良いものだけを、加盟オーナーの皆さまとそのユーザーさまにお届けしたいと考えています。<br><br>
+      派手さはありませんが、<b>14年間この事業と向き合ってきました</b>。穏やかで誠実な方々にご加盟いただき、長くお付き合いできることが何よりの喜びです。まずは資料だけでも、お気軽にご覧ください。」
+    </div>
+    <div class="ceo-history">
+      <span>事業歴 <b>14年</b></span>
+      <span>年間利益 <b>3,000万円以上</b></span>
+      <span>案件精査を最重視</span>
+    </div>
   </section>
 </div>
 
-<!-- ================= ⑪ 加盟プラン ================= -->
-<div class="sec-label">
-  <span class="num">SEC 11</span><h2>加盟プラン（料金）</h2>
-  <p class="purpose">目的：加盟金を明示して面談の質を担保しつつ、300万円プランへ自然に誘導（本部意向）</p>
-</div>
-<div class="lp">
-  <section class="lp-sec bg-soft">
-    <span class="eyebrow">PLAN</span>
-    <h3 class="lp-h">加盟プランは<br>2つからお選びいただけます</h3>
-    <div class="plan">
-      <h4>スタンダードプラン</h4>
-      <p class="price">加盟金 <span class="n">130</span>万円<span style="font-size:12px;">（税別表記は要確認）</span></p>
-      <p class="royal"><span class="r10">ロイヤリティ：売上の10%（最初の3年間）</span></p>
-    </div>
-    <div class="plan osusume">
-      <h4>プレミアムプラン</h4>
-      <p class="price">加盟金 <span class="n" style="color:var(--gold);">300</span>万円</p>
-      <p class="royal">ロイヤリティ <span class="zero">0円</span>（ずっと）</p>
-      <p class="plan-note">売上が伸びるほどおトクに。長く続ける方に選ばれています。</p>
-    </div>
-    <div class="ph" style="height:150px;">グラフ：2プランの累計手残り比較<br>（◯年目でプレミアムが逆転する構図を可視化）</div>
-    <p style="font-size:11px;color:var(--ink-soft);text-align:center;margin-top:10px;">※比較シミュレーションの前提条件を注記で明示します。</p>
-  </section>
-</div>
-<p class="note"><b>制作メモ：</b>2プラン並記は本部の必須要望。300万円プランを「おすすめ」枠＋累計手残り比較グラフで訴求し、途中変更不可の運用実態に沿って<b>最初からプレミアムを選ぶ動機</b>を作ります。税込/税別表記は要確認。</p>
+<!-- ⑪ 加盟プラン（削除済み） -->
 
 <!-- ================= ⑫ 加盟までの流れ ================= -->
 <div class="sec-label">
