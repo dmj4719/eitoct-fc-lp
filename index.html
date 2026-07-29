@@ -279,19 +279,57 @@ h3.lp-h .u{
   border-top:18px solid var(--green-mid);
 }
 /* ============ ③仕組み図解 ============ */
-.scheme{background:#fff;border:2px solid var(--green-mid);border-radius:14px;padding:22px 16px;}
+/* ABOUT背景：リッチなグリーン系 */
+.lp-sec.about-sec{
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(62,138,110,.10) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, rgba(30,92,76,.08) 0%, transparent 60%),
+    linear-gradient(170deg,#F0F7F3 0%, #E4F0EA 35%, #D8EAE0 65%, #CFDED6 100%);
+  position:relative;overflow:hidden;
+}
+.lp-sec.about-sec::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(120deg, rgba(30,92,76,.04) 1px, transparent 1px),
+    linear-gradient(240deg, rgba(30,92,76,.04) 1px, transparent 1px);
+  background-size:32px 56px;
+  pointer-events:none;
+}
+.lp-sec.about-sec::after{
+  content:"";position:absolute;top:-40px;right:-40px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle, rgba(62,138,110,.10) 0%, transparent 65%);
+  pointer-events:none;
+}
+.lp-sec.about-sec *{position:relative;z-index:1;}
+.scheme{background:#fff;border:2px solid var(--green-mid);border-radius:16px;padding:24px 16px;
+  box-shadow:0 4px 16px rgba(30,92,76,.10);}
 .scheme-row{display:flex;align-items:center;justify-content:space-between;gap:6px;}
 .scheme-box{
-  flex:1;background:var(--green-soft);border-radius:10px;padding:12px 6px;
+  flex:1;background:var(--green-soft);border-radius:12px;padding:14px 6px;
   text-align:center;font-size:12px;font-weight:700;color:var(--green-deep);line-height:1.5;
+  border:1.5px solid rgba(30,92,76,.12);
 }
-.scheme-box.you{background:var(--gold);color:#fff;box-shadow:0 3px 10px rgba(196,134,42,.35);}
-.scheme-arrow{font-size:16px;color:var(--green-mid);font-weight:900;}
-.scheme-cap{font-size:11px;color:var(--ink-soft);text-align:center;margin-top:12px;}
+.scheme-box.you{background:var(--green-deep);color:#fff;box-shadow:0 3px 12px rgba(30,92,76,.30);border-color:transparent;}
+.scheme-arrow{font-size:18px;color:var(--green-mid);font-weight:900;}
 .scheme-money{
   text-align:center;margin-top:16px;font-size:14px;font-weight:700;
 }
-.scheme-money .y{color:var(--gold);font-size:22px;font-weight:900;}
+.scheme-money .y{color:var(--green-deep);font-size:22px;font-weight:900;}
+/* 安心バナー */
+.about-assurance{
+  background:var(--green-deep);color:#fff;border-radius:14px;
+  padding:20px 18px;margin-top:20px;text-align:center;
+  font-size:13.5px;line-height:1.9;
+  box-shadow:0 4px 14px rgba(30,92,76,.20);
+}
+.about-assurance b{font-size:16px;display:block;margin-bottom:4px;}
+.about-assurance .safe{
+  display:inline-block;margin-top:6px;
+  font-family:"Zen Maru Gothic",sans-serif;font-size:18px;font-weight:900;
+  background:linear-gradient(transparent 60%,rgba(255,255,255,.2) 60%);
+  padding:0 4px;
+}
 /* ============ ④理由 ============ */
 .reason{display:flex;gap:14px;background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;
   border:1px solid var(--line);box-shadow:0 3px 10px rgba(30,60,50,.06);}
@@ -682,12 +720,12 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   <p class="purpose">目的：ITリテラシーが高くない層でも「収益が生まれる仕組み」を図1枚で理解させる（面談化率のボトルネック解消。本LPの生命線）</p>
 </div>
 <div class="lp">
-  <section class="lp-sec">
+  <section class="lp-sec about-sec">
     <span class="eyebrow">ABOUT</span>
     <h3 class="lp-h">どうして<span class="u">スキルなし</span>で<br>収益が生まれるの？</h3>
     <p style="font-size:14px;text-align:center;margin-bottom:20px;">
-      仕組みはシンプル。<b style="color:var(--green-deep);">「副業をしたい人」</b>と<b style="color:var(--green-deep);">「働き手を探す企業」</b>を、あなたが<b style="background:linear-gradient(transparent 62%,#F5D9A8 62%);">おつなぎするだけ</b>。<br>
-      おつなぎした企業から<b style="color:var(--gold-deep);">紹介料</b>が支払われます。
+      仕組みはシンプル。<br>
+      <b style="color:var(--green-deep);">「副業をしたい人」</b>と<b style="color:var(--green-deep);">「働き手を探す企業」</b>を、<br>あなたが<b style="background:linear-gradient(transparent 62%,#F5D9A8 62%);">おつなぎするだけ</b>。
     </p>
     <div class="scheme">
       <div class="scheme-row">
@@ -698,11 +736,12 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
         <div class="scheme-box">案件企業<br><small style="font-weight:400;">（本部が用意）</small></div>
       </div>
       <p class="scheme-money">紹介1件ごとに <span class="y">紹介料</span> があなたの売上に</p>
-      <p class="scheme-cap">図版：3者の関係とお金の流れを1枚のイラストで表現（矢印アニメーション検討）</p>
     </div>
-    <p style="font-size:13px;text-align:center;margin-top:18px;color:var(--ink-soft);">
-      案件の開拓・ユーザーへの説明・サポート・報酬支払いは<br><b style="color:var(--green-deep);font-size:15px;">すべて本部と案件企業が対応</b>。<br>だから、はじめてでも安心です。
-    </p>
+    <div class="about-assurance">
+      <b>案件の開拓・ユーザーへの説明・<br>サポート・報酬支払いは</b>
+      すべて本部と案件企業が対応。<br>
+      <span class="safe">だから、はじめてでも安心です。</span>
+    </div>
   </section>
 </div>
 <p class="note"><b>制作メモ：</b>「仕組みのイメージが湧かず面談に至らない」が既存LPの最大課題（ヒアリング確定事項）。図版はデザイナー制作のオリジナルイラストで、専門用語（マッチング／スキーム等）を使わず表現します。</p>
