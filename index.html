@@ -193,13 +193,11 @@ h3.lp-h .u{
 /* --- 3冠バッジ（画像版） --- */
 .fv .badge3{
   position:relative;z-index:1;
-  display:flex;gap:0;justify-content:center;margin:0 -10px 22px;
+  margin:0 -10px 22px;text-align:center;
 }
-.fv .badge3 img{
-  width:33.33%;max-width:160px;height:auto;object-fit:contain;
-  transition:transform .2s ease;
+.fv .badge3 .badge3-single{
+  width:100%;max-width:440px;height:auto;
 }
-.fv .badge3 img:hover{transform:scale(1.06);}
 /* --- FV写真 --- */
 .fv-hero{
   position:relative;z-index:1;
@@ -714,7 +712,6 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   .fv-profit .money{font-size:52px;}
   .fv-profit .money .unit{font-size:24px;}
   .fv .badge3{margin:0 -6px 18px;}
-  .fv .badge3 img{width:33.33%;}
   .fv .fv-points span{font-size:11.5px;padding:4px 10px 4px 8px;}
 }
 </style>
@@ -750,9 +747,7 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     </h3>
     <p class="fv-profit">年間利益<span class="money">3,000<span class="unit">万円</span></span>も可能</p>
     <div class="badge3">
-      <img src="img/badge1.png" alt="友人に紹介したい副業支援サービス No.1" width="120" height="120">
-      <img src="img/badge2.png" alt="安心・信頼の副業支援サービス No.1" width="120" height="120">
-      <img src="img/badge3.png" alt="副業が初めての方におすすめの副業支援サービス No.1" width="120" height="120">
+      <img src="img/badges-3crown.png" alt="友人に紹介したい副業支援サービス No.1 / 安心・信頼の副業支援サービス No.1 / 副業初心者におすすめの副業支援サービス No.1" class="badge3-single">
     </div>
     <div class="fv-hero">
       <img src="img/fv-hero.png" alt="自宅で副業に取り組むオーナーイメージ" width="480" height="200">
