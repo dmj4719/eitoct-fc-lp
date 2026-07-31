@@ -645,25 +645,43 @@ details.faq .a b{color:var(--ink);}
 .form-row label{display:block;font-size:13px;font-weight:700;margin-bottom:5px;color:var(--ink);}
 .req{background:var(--alert);color:#fff;font-size:10px;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px;}
 .opt{background:#B9B6AD;color:#fff;font-size:10px;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px;}
-.fake-input{background:#F4F6F5;border:1px solid var(--line);border-radius:8px;height:44px;}
-.fake-select{
-  background:#F4F6F5;border:1px solid var(--line);border-radius:8px;height:44px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 14px;font-size:13.5px;color:#8B958F;
+.form-box input[type="text"],
+.form-box input[type="tel"],
+.form-box input[type="email"]{
+  width:100%;background:#F4F6F5;border:1px solid var(--line);border-radius:8px;height:44px;
+  padding:0 14px;font-size:14px;font-family:"Noto Sans JP",sans-serif;color:var(--ink);
+  outline:none;-webkit-appearance:none;
 }
-.fake-select::after{content:"▼";font-size:11px;color:var(--green-mid);}
+.form-box input:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(62,138,110,.12);}
+.form-box select{
+  width:100%;background:#F4F6F5;border:1px solid var(--line);border-radius:8px;height:44px;
+  padding:0 14px;font-size:14px;font-family:"Noto Sans JP",sans-serif;color:var(--ink);
+  outline:none;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233E8A6E' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+.form-box select:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(62,138,110,.12);}
+.form-box select:invalid{color:#8B958F;}
 .radio-row{display:flex;gap:10px;}
+.radio-row input[type="radio"]{position:absolute;opacity:0;pointer-events:none;}
 .radio-pill{
   flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
   border:1.5px solid var(--line);border-radius:10px;height:46px;
-  font-size:14px;font-weight:700;color:var(--ink);background:#F9FAF9;
+  font-size:14px;font-weight:700;color:var(--ink);background:#F9FAF9;cursor:pointer;
 }
 .radio-pill::before{
   content:"";width:16px;height:16px;border-radius:50%;border:2px solid #B9C4BE;background:#fff;
 }
-.radio-pill.on{border-color:var(--green-deep);background:var(--green-soft);color:var(--green-deep);}
-.radio-pill.on::before{border:5px solid var(--green-deep);}
-.form-box .cta-btn{max-width:340px;margin-left:auto;margin-right:auto;}
+.radio-row input[type="radio"]:checked+.radio-pill{border-color:var(--green-deep);background:var(--green-soft);color:var(--green-deep);}
+.radio-row input[type="radio"]:checked+.radio-pill::before{border:5px solid var(--green-deep);}
+.form-box button.cta-btn{
+  max-width:340px;margin-left:auto;margin-right:auto;
+  border:none;cursor:pointer;font-family:"Noto Sans JP",sans-serif;width:100%;
+}
+.form-box button.cta-btn:disabled{opacity:.6;cursor:not-allowed;animation:none;}
+.form-thanks{text-align:center;padding:40px 10px;font-size:16px;font-weight:700;color:var(--green-deep);line-height:1.8;}
+.form-thanks .thanks-icon{font-size:48px;display:block;margin-bottom:10px;}
+.form-error{text-align:center;font-size:13px;color:var(--alert);margin-top:8px;}
 .doc-preview{display:flex;gap:8px;margin-bottom:18px;}
 .doc-preview .ph{flex:1;height:110px;}
 .doc-preview img{flex:1;min-width:0;height:auto;border-radius:6px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.18);}
@@ -1234,21 +1252,37 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
       <img src="img/wp-thumb2.png" alt="収益実績ページ">
       <img src="img/wp-thumb3.png" alt="他業種との比較">
     </div>
-    <div class="form-box">
+    <form id="contact-form" class="form-box">
+      <input type="hidden" name="page_url" id="page_url">
       <div class="form-row"><label>お申込者<span class="req">必須</span></label>
         <div class="radio-row">
-          <div class="radio-pill on">個人様</div>
-          <div class="radio-pill">法人様</div>
+          <input type="radio" name="applicant_type" id="r-kojin" value="個人様" checked>
+          <label class="radio-pill" for="r-kojin">個人様</label>
+          <input type="radio" name="applicant_type" id="r-hojin" value="法人様">
+          <label class="radio-pill" for="r-hojin">法人様</label>
         </div>
       </div>
-      <div class="form-row"><label>お名前<span class="req">必須</span></label><div class="fake-input"></div></div>
-      <div class="form-row"><label>会社名<span class="opt">任意</span></label><div class="fake-input"></div><small style="font-size:11px;color:var(--ink-soft);">個人の方は空欄で構いません</small></div>
-      <div class="form-row"><label>都道府県<span class="req">必須</span></label><div class="fake-select">選択してください</div></div>
-      <div class="form-row"><label>電話番号<span class="req">必須</span></label><div class="fake-input"></div></div>
-      <div class="form-row"><label>メールアドレス<span class="req">必須</span></label><div class="fake-input"></div><small style="font-size:11px;color:var(--ink-soft);">キャリアメールは届かない場合があります。Gmail等をご入力ください</small></div>
-      <a class="cta-btn" href="javascript:void(0)" style="margin-top:10px;">無料で資料を受け取る</a>
-      <p class="cta-sub" style="text-align:center;">個人情報保護方針に同意の上お申し込みください</p>
-    </div>
+      <div class="form-row"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" name="name" id="f-name" placeholder="例）山田 太郎" required></div>
+      <div class="form-row"><label for="f-company">会社名<span class="opt">任意</span></label><input type="text" name="company" id="f-company" placeholder="例）株式会社〇〇"><small style="font-size:11px;color:var(--ink-soft);">個人の方は空欄で構いません</small></div>
+      <div class="form-row"><label for="f-pref">都道府県<span class="req">必須</span></label>
+        <select name="prefecture" id="f-pref" required>
+          <option value="" disabled selected>選択してください</option>
+          <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+          <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
+          <option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+          <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+          <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+          <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+          <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+          <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+        </select>
+      </div>
+      <div class="form-row"><label for="f-tel">電話番号<span class="req">必須</span></label><input type="tel" name="phone" id="f-tel" placeholder="例）090-1234-5678" required></div>
+      <div class="form-row"><label for="f-email">メールアドレス<span class="req">必須</span></label><input type="email" name="email" id="f-email" placeholder="例）example@gmail.com" required><small style="font-size:11px;color:var(--ink-soft);">キャリアメールは届かない場合があります。Gmail等をご入力ください</small></div>
+      <button type="submit" class="cta-btn" style="margin-top:10px;">無料で資料を受け取る</button>
+      <p class="cta-sub" style="text-align:center;"><a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener" style="color:var(--ink-soft);">個人情報保護方針</a>に同意の上お申し込みください</p>
+      <p class="form-error" id="form-error" style="display:none;"></p>
+    </form>
   </section>
   <footer class="lp-footer">株式会社eito.ct｜<a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">プライバシーポリシー</a></footer>
   <div class="sticky-note">▼ 画面下部に追従CTAボタン「無料で資料をダウンロード」を常時表示（全セクション共通）</div>
@@ -1273,17 +1307,45 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
+  /* 追従CTA制御 */
   var cta=document.querySelector('.sticky-cta');
-  var form=document.getElementById('form');
-  if(!cta||!form)return;
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      cta.classList.toggle('hidden',e.isIntersecting);
-    });
-  },{threshold:0.1});
-  io.observe(form);
+  var formSec=document.getElementById('form');
+  if(cta&&formSec){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        cta.classList.toggle('hidden',e.isIntersecting);
+      });
+    },{threshold:0.1});
+    io.observe(formSec);
+  }
+
+  /* EmailJS */
+  emailjs.init('EP-hfSXZ05nhzr9ZJ');
+  document.getElementById('page_url').value=location.href;
+
+  var contactForm=document.getElementById('contact-form');
+  contactForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=contactForm.querySelector('button.cta-btn');
+    var errEl=document.getElementById('form-error');
+    errEl.style.display='none';
+    btn.disabled=true;
+    btn.textContent='送信中...';
+
+    emailjs.sendForm('service_vnyk47y','template_t0nvy1j',contactForm)
+      .then(function(){
+        contactForm.innerHTML='<div class="form-thanks"><span class="thanks-icon">✓</span>お申し込みありがとうございます。<br>資料をメールでお送りしますので、<br>しばらくお待ちください。</div>';
+      })
+      .catch(function(){
+        errEl.textContent='送信に失敗しました。お手数ですが、もう一度お試しください。';
+        errEl.style.display='block';
+        btn.disabled=false;
+        btn.textContent='無料で資料を受け取る';
+      });
+  });
 })();
 </script>
 </body>
