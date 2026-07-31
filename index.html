@@ -664,16 +664,14 @@ details.faq .a b{color:var(--ink);}
 .form-box select:invalid{color:#8B958F;}
 .radio-row{display:flex;gap:10px;}
 .radio-pill{
-  flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  flex:1;display:flex;align-items:center;justify-content:center;
   border:1.5px solid var(--line);border-radius:10px;height:46px;
   font-size:14px;font-weight:700;color:var(--ink);background:#F9FAF9;cursor:pointer;
+  transition:all .15s;
 }
 .radio-pill input[type="radio"]{display:none;}
-.radio-pill::before{
-  content:"";display:block;width:16px;height:16px;border-radius:50%;border:2px solid #B9C4BE;background:#fff;flex-shrink:0;box-sizing:border-box;
-}
 .radio-pill.on{border-color:var(--green-deep);background:var(--green-soft);color:var(--green-deep);}
-.radio-pill.on::before{border:5px solid var(--green-deep);}
+.radio-pill.on::before{content:"✓ ";font-weight:900;}
 .form-box button.cta-btn{
   max-width:340px;margin-left:auto;margin-right:auto;
   border:none;cursor:pointer;font-family:"Noto Sans JP",sans-serif;width:100%;
