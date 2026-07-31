@@ -154,6 +154,34 @@ h2.tp-h .u{
 .tp-cta .cta-btn small{display:block;font-size:11px;font-weight:500;opacity:.92;letter-spacing:.1em;}
 .tp-cta-note{font-size:11px;color:rgba(255,255,255,.6);margin-top:10px;}
 
+/* ===== 追従CTA ===== */
+.sticky-cta{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:480px;z-index:999;
+  background:linear-gradient(180deg,#1a4f42 0%,#163f35 100%);
+  text-align:center;
+  box-shadow:0 -4px 20px rgba(0,0,0,.25);
+  border-radius:12px 12px 0 0;
+}
+.sticky-cta .sticky-micro{
+  background:var(--gold);color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  padding:5px 10px;
+  border-radius:12px 12px 0 0;
+}
+.sticky-cta .sticky-body{
+  padding:10px 16px 12px;
+}
+.sticky-cta .cta-btn{
+  display:block;max-width:320px;margin:0 auto;
+  background:var(--cta);color:#fff;font-size:17px;font-weight:900;
+  text-align:center;text-decoration:none;
+  padding:14px 10px;border-radius:60px;
+  box-shadow:0 4px 14px rgba(255,140,0,.35);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+
 /* ===== フッター ===== */
 .tp-footer{
   background:var(--green-deep);color:#fff;text-align:center;
@@ -256,6 +284,14 @@ h2.tp-h .u{
     株式会社eito.ct｜<a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>
   </footer>
 
+</div>
+
+<!-- 追従CTA -->
+<div class="sticky-cta">
+  <div class="sticky-micro">＼固定費0円のリスクなしFC／</div>
+  <div class="sticky-body">
+    <a class="cta-btn" href="#booking">無料面談はこちら</a>
+  </div>
 </div>
 
 </body>
