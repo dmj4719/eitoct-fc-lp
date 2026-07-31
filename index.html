@@ -662,16 +662,6 @@ details.faq .a b{color:var(--ink);}
 }
 .form-box select:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(62,138,110,.12);}
 .form-box select:invalid{color:#8B958F;}
-.radio-row{display:flex;gap:10px;}
-.radio-pill{
-  flex:1;display:flex;align-items:center;justify-content:center;
-  border:1.5px solid var(--line);border-radius:10px;height:46px;
-  font-size:14px;font-weight:700;color:var(--ink);background:#F9FAF9;cursor:pointer;
-  transition:all .15s;
-}
-.radio-pill input[type="radio"]{display:none;}
-.radio-pill.on{border-color:var(--green-deep);background:var(--green-soft);color:var(--green-deep);}
-.radio-pill.on::before{content:"✓ ";font-weight:900;}
 .form-box button.cta-btn{
   max-width:340px;margin-left:auto;margin-right:auto;
   border:none;cursor:pointer;font-family:"Noto Sans JP",sans-serif;width:100%;
@@ -1252,11 +1242,11 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
     </div>
     <form id="contact-form" class="form-box">
       <input type="hidden" name="page_url" id="page_url">
-      <div class="form-row"><label>お申込者<span class="req">必須</span></label>
-        <div class="radio-row">
-          <label class="radio-pill"><input type="radio" name="applicant_type" value="個人様" checked>個人様</label>
-          <label class="radio-pill"><input type="radio" name="applicant_type" value="法人様">法人様</label>
-        </div>
+      <div class="form-row"><label for="f-type">お申込者<span class="req">必須</span></label>
+        <select name="applicant_type" id="f-type" required>
+          <option value="個人様" selected>個人様</option>
+          <option value="法人様">法人様</option>
+        </select>
       </div>
       <div class="form-row"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" name="name" id="f-name" placeholder="例）山田 太郎" required></div>
       <div class="form-row"><label for="f-company">会社名<span class="opt">任意</span></label><input type="text" name="company" id="f-company" placeholder="例）株式会社〇〇"><small style="font-size:11px;color:var(--ink-soft);">個人の方は空欄で構いません</small></div>
@@ -1321,19 +1311,6 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   /* EmailJS */
   emailjs.init('EP-hfSXZ05nhzr9ZJ');
   document.getElementById('page_url').value=location.href;
-
-  /* ラジオボタン切替 */
-  document.querySelectorAll('.radio-row').forEach(function(row){
-    var pills=row.querySelectorAll('.radio-pill');
-    pills.forEach(function(pill){
-      var radio=pill.querySelector('input[type="radio"]');
-      if(radio&&radio.checked) pill.classList.add('on');
-      pill.addEventListener('click',function(){
-        pills.forEach(function(p){p.classList.remove('on');});
-        pill.classList.add('on');
-      });
-    });
-  });
 
   var contactForm=document.getElementById('contact-form');
   contactForm.addEventListener('submit',function(e){
