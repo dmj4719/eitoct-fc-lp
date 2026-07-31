@@ -181,6 +181,8 @@ h2.tp-h .u{
   animation:pulse 2.6s ease-in-out infinite;
 }
 @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+.sticky-cta{transition:opacity .4s ease,visibility .4s ease;}
+.sticky-cta.hidden{opacity:0;visibility:hidden;pointer-events:none;}
 
 /* ===== フッター ===== */
 .tp-footer{
@@ -294,5 +296,18 @@ h2.tp-h .u{
   </div>
 </div>
 
+<script>
+(function(){
+  var cta=document.querySelector('.sticky-cta');
+  var booking=document.getElementById('booking');
+  if(!cta||!booking)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      cta.classList.toggle('hidden',e.isIntersecting);
+    });
+  },{threshold:0.1});
+  io.observe(booking);
+})();
+</script>
 </body>
 </html>
