@@ -1324,7 +1324,7 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
 
     emailjs.sendForm('service_vnyk47y','template_t0nvy1j',contactForm)
       .then(function(){
-        contactForm.innerHTML='<div class="form-thanks"><span class="thanks-icon">✓</span>お申し込みありがとうございます。<br>資料をメールでお送りしますので、<br>しばらくお待ちください。</div>';
+        window.location.href='thanks.html';
       })
       .catch(function(){
         errEl.textContent='送信に失敗しました。お手数ですが、もう一度お試しください。';

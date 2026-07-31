@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>資料請求ありがとうございます｜株式会社eito.ct</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-deep:#1E5C4C;
+  --green-mid:#3E8A6E;
+  --green-soft:#EAF4EE;
+  --gold:#C4862A;
+  --gold-deep:#A96F1B;
+  --cta:#E8813A;
+  --cta-deep:#D06A24;
+  --ink:#2E3B36;
+  --ink-soft:#5C6B64;
+  --cream:#FBF9F4;
+  --line:#DCE5DF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  background:var(--green-soft);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.tp{max-width:480px;margin:0 auto;background:#fff;min-height:100vh;overflow:hidden;}
+
+/* ===== ヘッダー ===== */
+.tp-header{
+  background:linear-gradient(165deg,#F3FAF6 0%,#D4E8DC 100%);
+  text-align:center;padding:48px 26px 36px;
+  position:relative;overflow:hidden;
+}
+.tp-header::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(circle, rgba(30,92,76,.05) 1.5px, transparent 1.5px);
+  background-size:28px 28px;pointer-events:none;
+}
+.tp-header *{position:relative;z-index:1;}
+.tp-logo{width:140px;height:auto;margin-bottom:24px;}
+.tp-check{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--green-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;font-size:32px;font-weight:900;
+  box-shadow:0 4px 16px rgba(30,92,76,.3);
+}
+.tp-header h1{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:22px;font-weight:900;color:var(--green-deep);
+  line-height:1.5;margin-bottom:10px;
+}
+.tp-header p{font-size:14px;color:var(--ink-soft);line-height:1.8;}
+.tp-header p b{color:var(--ink);}
+
+/* ===== セクション共通 ===== */
+.tp-sec{padding:40px 26px;}
+.tp-sec.bg-soft{background:var(--green-soft);}
+.tp-sec.bg-cream{background:var(--cream);}
+.eyebrow{
+  display:block;text-align:center;font-size:13px;font-weight:700;
+  color:var(--green-mid);letter-spacing:.22em;margin-bottom:10px;
+}
+h2.tp-h{
+  font-family:"Zen Maru Gothic",sans-serif;
+  text-align:center;font-size:22px;font-weight:900;line-height:1.5;
+  color:var(--green-deep);margin-bottom:22px;
+}
+h2.tp-h .u{
+  background:linear-gradient(transparent 62%, #F5D9A8 62%);
+  padding:0 2px;
+}
+
+/* ===== ステップ案内 ===== */
+.tp-steps{counter-reset:step;}
+.tp-step{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:20px;
+}
+.tp-step::before{
+  counter-increment:step;content:counter(step);
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  background:var(--green-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;
+}
+.tp-step-body b{color:var(--green-deep);font-size:15px;display:block;margin-bottom:2px;}
+.tp-step-body span{font-size:13px;color:var(--ink-soft);}
+
+/* ===== 代表メッセージ ===== */
+.tp-ceo{text-align:center;margin-bottom:20px;}
+.tp-ceo img{
+  width:120px;height:120px;border-radius:50%;object-fit:cover;
+  border:3px solid var(--green-soft);
+  box-shadow:0 4px 16px rgba(30,92,76,.15);
+}
+.tp-ceo-name{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:13px;color:var(--ink-soft);margin-top:10px;
+}
+.tp-ceo-name b{display:block;font-size:16px;color:var(--ink);margin-top:2px;}
+.tp-msg{
+  background:var(--green-soft);border-radius:14px;padding:20px 18px;
+  font-size:14px;line-height:1.9;color:var(--ink);
+  position:relative;
+}
+.tp-msg::before{
+  content:"";position:absolute;top:-10px;left:50%;margin-left:-10px;
+  border:10px solid transparent;border-bottom-color:var(--green-soft);
+}
+.tp-msg b{color:var(--green-deep);}
+
+/* ===== 資料プレビュー ===== */
+.tp-preview{
+  display:flex;gap:8px;margin:20px 0;
+}
+.tp-preview img{
+  flex:1;min-width:0;height:auto;border-radius:6px;
+  object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+
+/* ===== 安心ポイント ===== */
+.tp-points{display:flex;flex-direction:column;gap:12px;}
+.tp-point{
+  display:flex;align-items:center;gap:12px;
+  background:#fff;border-radius:12px;padding:14px 16px;
+  border:1px solid var(--line);
+}
+.tp-point-icon{
+  flex-shrink:0;width:40px;height:40px;border-radius:10px;
+  background:var(--green-soft);color:var(--green-deep);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.tp-point b{font-size:14px;color:var(--green-deep);display:block;}
+.tp-point span{font-size:12px;color:var(--ink-soft);}
+
+/* ===== CTA ===== */
+.tp-cta{
+  text-align:center;padding:36px 26px;
+  background:linear-gradient(135deg,var(--green-deep) 0%,#2D7A60 100%);
+}
+.tp-cta p{color:rgba(255,255,255,.9);font-size:14px;font-weight:700;margin-bottom:14px;line-height:1.7;}
+.tp-cta .cta-btn{
+  display:block;background:linear-gradient(180deg,var(--cta),var(--cta-deep));
+  color:#fff;font-size:18px;font-weight:900;text-decoration:none;text-align:center;
+  border-radius:999px;padding:16px 10px;
+  box-shadow:0 5px 0 #A9541B, 0 10px 18px rgba(208,106,36,.35);
+  letter-spacing:.04em;max-width:360px;margin:0 auto;
+}
+.tp-cta .cta-btn small{display:block;font-size:11px;font-weight:500;opacity:.92;letter-spacing:.1em;}
+.tp-cta-note{font-size:11px;color:rgba(255,255,255,.6);margin-top:10px;}
+
+/* ===== フッター ===== */
+.tp-footer{
+  background:var(--green-deep);color:#fff;text-align:center;
+  font-size:11px;padding:20px;
+}
+.tp-footer a{color:#fff;text-decoration:underline;}
+
+/* ===== レスポンシブ ===== */
+@media(max-width:520px){
+  .tp-header h1{font-size:20px;}
+  h2.tp-h{font-size:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="tp">
+
+  <!-- ヘッダー -->
+  <div class="tp-header">
+    <img src="img/logo.png" alt="eito.ct" class="tp-logo">
+    <div class="tp-check">✓</div>
+    <h1>資料の送付を<br>受け付けました</h1>
+    <p>ご入力いただいたメールアドレスへ、<br><b>資料（PDF）</b>をお送りいたします。<br>届かない場合は迷惑メールフォルダもご確認ください。</p>
+  </div>
+
+  <!-- 今後の流れ -->
+  <div class="tp-sec">
+    <span class="eyebrow">NEXT STEP</span>
+    <h2 class="tp-h">今後の<span class="u">3ステップ</span></h2>
+    <div class="tp-steps">
+      <div class="tp-step">
+        <div class="tp-step-body">
+          <b>資料をご確認ください</b>
+          <span>事業の仕組み・収益実績・加盟プランをまとめています。</span>
+        </div>
+      </div>
+      <div class="tp-step">
+        <div class="tp-step-body">
+          <b>個別面談（オンライン30分〜）</b>
+          <span>疑問点になんでもお答えします。無理な勧誘はいたしません。</span>
+        </div>
+      </div>
+      <div class="tp-step">
+        <div class="tp-step-body">
+          <b>ご納得いただけたらスタート</b>
+          <span>電子契約で来社不要。個別レクチャー全5回で安心して開始できます。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 代表メッセージ -->
+  <div class="tp-sec bg-cream">
+    <span class="eyebrow">MESSAGE</span>
+    <h2 class="tp-h">代表よりひとこと</h2>
+    <div class="tp-ceo">
+      <img src="img/ceo.jpg" alt="株式会社eito.ct 代表 保科 拓也">
+      <p class="tp-ceo-name">株式会社eito.ct 代表<b>保科 拓也</b></p>
+    </div>
+    <div class="tp-msg">
+      資料をご請求いただき、ありがとうございます。<br><br>
+      私がこの事業で大切にしているのは、<b>数を増やすことではなく、案件を精査すること</b>。本当に良いものだけを、加盟オーナーの皆さまにお届けしたいと考えています。<br><br>
+      資料をご覧になって少しでも気になることがあれば、<b>お気軽にお問い合わせください</b>。穏やかな雰囲気で、なんでもお答えいたします。
+    </div>
+  </div>
+
+  <!-- 資料プレビュー -->
+  <div class="tp-sec">
+    <span class="eyebrow">DOCUMENT</span>
+    <h2 class="tp-h">お届けする資料の一部</h2>
+    <div class="tp-preview">
+      <img src="img/wp-thumb1.png" alt="資料表紙">
+      <img src="img/wp-thumb2.png" alt="収益実績ページ">
+      <img src="img/wp-thumb3.png" alt="他業種との比較">
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--ink-soft);margin-top:8px;">事業の仕組み・収益実績・他業種比較など全ページをお届けします</p>
+  </div>
+
+  <!-- 安心ポイント -->
+  <div class="tp-sec bg-soft">
+    <span class="eyebrow">PROMISE</span>
+    <h2 class="tp-h">3つのお約束</h2>
+    <div class="tp-points">
+      <div class="tp-point">
+        <div class="tp-point-icon">🤝</div>
+        <div>
+          <b>無理な勧誘は一切しません</b>
+          <span>資料を見て「違うな」と感じたら、それだけでOKです。</span>
+        </div>
+      </div>
+      <div class="tp-point">
+        <div class="tp-point-icon">📞</div>
+        <div>
+          <b>確認のお電話を差し上げます</b>
+          <span>資料の到着確認とご不明点の解消のため、お電話させていただく場合がございます。</span>
+        </div>
+      </div>
+      <div class="tp-point">
+        <div class="tp-point-icon">🔒</div>
+        <div>
+          <b>個人情報は厳重に管理</b>
+          <span>お預かりした情報は資料送付・ご連絡以外には使用しません。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="tp-cta">
+    <p>ご質問やご不明点がありましたら<br>お気軽にお問い合わせください</p>
+    <a class="cta-btn" href="https://www.eitoct.tokyo/" target="_blank" rel="noopener">
+      eito.ct 公式サイトを見る
+      <small>事業の詳細・会社情報をご覧いただけます</small>
+    </a>
+    <p class="tp-cta-note">株式会社eito.ct</p>
+  </div>
+
+  <!-- フッター -->
+  <footer class="tp-footer">
+    株式会社eito.ct｜<a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
