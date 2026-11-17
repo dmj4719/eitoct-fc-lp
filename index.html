@@ -168,8 +168,15 @@ h3.lp-h .u{
   letter-spacing:.04em;
 }
 .fv h3.fv-copy .fc{color:var(--green-deep);}
+.fv h3.fv-copy .sub{
+  display:block;font-family:"Noto Sans JP",sans-serif;
+  font-size:22px;font-weight:500;line-height:1.3;letter-spacing:.02em;white-space:nowrap;
+}
+.fv h3.fv-copy .sub b{font-weight:900;}
+.fv h3.fv-copy .sub .gap{display:inline-block;width:.6em;}
+.fv h3.fv-copy .main{display:block;font-size:32px;font-weight:900;line-height:1.4;margin-top:6px;white-space:nowrap;}
 .fv h3.fv-copy .zero{
-  color:var(--green-deep);font-size:46px;letter-spacing:.02em;
+  color:var(--green-deep);font-size:34px;font-weight:900;letter-spacing:.02em;
 }
 .fv h3.fv-copy .money{color:var(--gold);font-size:42px;}
 .fv h3.fv-copy .small{font-size:16px;font-weight:700;color:var(--ink-soft);}
@@ -289,7 +296,7 @@ h3.lp-h .u{
 }
 .worry-answer .big{
   font-size:26px;display:inline;
-  background:linear-gradient(transparent 60%,rgba(245,217,168,.4) 60%);
+  color:#FFD45C;
   padding:0 3px;
 }
 /* イラスト */
@@ -336,6 +343,8 @@ h3.lp-h .u{
 .scheme-box.you .s-icon{background:rgba(255,255,255,.2);}
 .scheme-box.you .s-icon svg{fill:#fff;}
 .scheme-arrow{font-size:16px;color:var(--green-mid);font-weight:900;}
+.scheme-box{flex:1 1 0;min-width:0;padding:10px 3px;font-size:11px;white-space:nowrap;}
+.scheme-box small{font-size:9.5px;white-space:nowrap;}
 .scheme-money{
   text-align:center;margin-top:14px;font-size:14px;font-weight:700;
 }
@@ -722,12 +731,84 @@ footer.lp-footer{background:var(--green-deep);color:#fff;text-align:center;font-
   .fv{padding:30px 18px 30px;}
   .recruit-ribbon{font-size:13px;margin:0 20px 16px;}
   .fv h3.fv-copy{font-size:23px;}
-  .fv h3.fv-copy .zero{font-size:38px;}
+  .fv h3.fv-copy .sub{font-size:18px;}
+  .fv h3.fv-copy .zero{font-size:28px;}
+  .fv h3.fv-copy .main{font-size:clamp(22px,7.2vw,28px);}
   .fv h3.fv-copy .money{font-size:34px;}
   .fv-profit .money{font-size:52px;}
   .fv-profit .money .unit{font-size:24px;}
   .fv .badge3{margin:0 -6px 18px;}
   .fv .fv-points span{font-size:11.5px;padding:4px 10px 4px 8px;}
+}
+/* ============ アニメーション ============ */
+/* 共通：画面に入ったら .is-in が付く */
+/* --- スキーム図 --- */
+.anim-scheme .scheme-box,.anim-scheme .scheme-arrow,.anim-scheme .scheme-money{opacity:0;}
+.anim-scheme.is-in .scheme-box{animation:popIn .5s cubic-bezier(.2,1.4,.4,1) forwards;}
+.anim-scheme.is-in .scheme-box:nth-child(1){animation-delay:.05s;}
+.anim-scheme.is-in .scheme-box:nth-child(3){animation-delay:.35s;}
+.anim-scheme.is-in .scheme-box:nth-child(5){animation-delay:.65s;}
+.anim-scheme.is-in .scheme-arrow{animation:fadeIn .3s .9s forwards, arrowSwing 1.6s 1.2s ease-in-out infinite;}
+.anim-scheme.is-in .scheme-arrow:nth-child(4){animation-delay:.9s,2s;}
+.anim-scheme.is-in .scheme-box.you{animation:popIn .5s .35s cubic-bezier(.2,1.4,.4,1) forwards, youGlow 2.4s 1.4s ease-in-out infinite;}
+.anim-scheme.is-in .scheme-money{animation:fadeUp .5s 1.1s forwards;}
+.anim-scheme.is-in .scheme-money .y{display:inline-block;animation:coin 2.4s 1.6s ease-in-out infinite;}
+@keyframes popIn{0%{opacity:0;transform:scale(.6);}100%{opacity:1;transform:scale(1);}}
+@keyframes fadeIn{to{opacity:1;}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:none;}}
+@keyframes arrowSwing{0%,100%{transform:translateX(-3px);color:var(--green-mid);}50%{transform:translateX(3px);color:var(--gold);}}
+@keyframes youGlow{0%,100%{box-shadow:0 3px 12px rgba(30,92,76,.25);}50%{box-shadow:0 0 0 6px rgba(62,138,110,.18),0 3px 16px rgba(30,92,76,.35);}}
+@keyframes coin{0%,70%,100%{transform:scale(1);}80%{transform:scale(1.18) rotate(-4deg);}90%{transform:scale(1);}}
+/* --- SNSで集める --- */
+.anim-sns{position:relative;width:200px;margin-left:auto;margin-right:auto;}
+.anim-sns img{opacity:0;transform:translateY(12px);}
+.anim-sns.is-in img{animation:fadeUp .6s forwards, bob 4s .6s ease-in-out infinite;}
+.sns-pop{
+  position:absolute;opacity:0;pointer-events:none;
+  background:#fff;color:var(--green-deep);border:1.5px solid var(--green-mid);
+  border-radius:999px;font-size:10.5px;font-weight:700;white-space:nowrap;
+  padding:3px 8px;box-shadow:0 3px 8px rgba(30,60,50,.12);
+  display:flex;align-items:center;justify-content:center;
+}
+.sns-pop svg{width:14px;height:14px;fill:var(--alert);}
+.sns-pop.p3 svg{fill:var(--green-deep);}
+.sns-pop.p1,.sns-pop.p3{width:28px;height:28px;padding:0;}
+.sns-pop.p1{left:-14px;top:38%;}
+.sns-pop.p2{right:-22px;top:30%;}
+.sns-pop.p3{right:-10px;top:58%;}
+.sns-pop.p4{left:-26px;top:62%;}
+.anim-sns.is-in .sns-pop{animation:floatUp 3.2s ease-out infinite;}
+.anim-sns.is-in .p1{animation-delay:.8s;}
+.anim-sns.is-in .p2{animation-delay:1.6s;}
+.anim-sns.is-in .p3{animation-delay:2.4s;}
+.anim-sns.is-in .p4{animation-delay:3.2s;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+@keyframes floatUp{
+  0%{opacity:0;transform:translateY(14px) scale(.7);}
+  15%{opacity:1;transform:translateY(0) scale(1);}
+  60%{opacity:1;transform:translateY(-14px);}
+  85%,100%{opacity:0;transform:translateY(-26px);}
+}
+/* --- LINEでおつなぎ --- */
+.anim-bridge .bridge-icon,.anim-bridge .bridge-biz,.anim-bridge .bridge-bubble{opacity:0;}
+.anim-bridge.is-in .bridge-icon{animation:popIn .45s cubic-bezier(.2,1.4,.4,1) forwards;}
+.anim-bridge.is-in .bridge-bubble{animation:popIn .45s .35s cubic-bezier(.2,1.4,.4,1) forwards, bubblePulse 2.4s 1.2s ease-in-out infinite;}
+.anim-bridge.is-in .bridge-biz{animation:popIn .45s .7s cubic-bezier(.2,1.4,.4,1) forwards, bizRing 2.4s 1.8s ease-out infinite;}
+/* 線の上を点が流れる */
+.anim-bridge{gap:30px;}
+.anim-bridge .bridge-bubble::before,.anim-bridge .bridge-bubble::after{
+  width:26px;height:3px;border-radius:2px;
+  background:repeating-linear-gradient(90deg,var(--green-mid) 0 5px,transparent 5px 9px);
+  background-size:18px 3px;
+}
+.anim-bridge.is-in .bridge-bubble::before,.anim-bridge.is-in .bridge-bubble::after{animation:flowLine .6s linear infinite;}
+@keyframes flowLine{from{background-position:0 0;}to{background-position:18px 0;}}
+@keyframes bubblePulse{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
+@keyframes bizRing{0%{box-shadow:0 0 0 0 rgba(62,138,110,.45);}70%,100%{box-shadow:0 0 0 10px rgba(62,138,110,0);}}
+/* 動きを減らす設定の人には止めて表示 */
+@media (prefers-reduced-motion:reduce){
+  .anim-scheme *,.anim-sns img,.anim-bridge *{opacity:1!important;transform:none!important;animation:none!important;}
+  .sns-pop{display:none!important;}
 }
 </style>
 <!-- Google Tag Manager -->
@@ -768,8 +849,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span>在庫なし</span><span>店舗なし</span><span>従業員なし</span><span>スキル不要</span>
     </div>
     <h3 class="fv-copy">
-      固定費<span class="zero">0円</span>で続ける<br>
-      副業人材マッチング<span class="fc">FC</span>
+      <span class="sub">固定費<span class="zero">0</span>円<span class="gap"></span>赤字リスク<span class="zero">なし</span></span>
+      <span class="main"><span class="fc">副業人材マッチングFC</span></span>
     </h3>
     <p class="fv-profit">年間利益<span class="money">3,000<span class="unit">万円</span></span>も可能</p>
     <div class="badge3">
@@ -819,7 +900,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       仕組みはシンプル。<br>
       <b style="color:var(--green-deep);">「副業をしたい人」</b>と<b style="color:var(--green-deep);">「働き手を探す企業」</b>を、<br>あなたが<b style="background:linear-gradient(transparent 62%,#F5D9A8 62%);">おつなぎするだけ</b>。
     </p>
-    <div class="scheme">
+    <div class="scheme anim-scheme">
       <div class="scheme-row">
         <div class="scheme-box"><span class="s-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>副業したい人<br><small style="font-weight:400;">（ユーザー）</small></div>
         <div class="scheme-arrow">⇄</div>
@@ -889,14 +970,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="tag">あなたの仕事</span>
         <h4>② 副業したい人を集める</h4>
         <p>SNS（Instagram・X・Threads）の投稿、または1日1件のオンライン面談。</p>
-        <div class="work-img"><img src="img/work-sns.png" alt="SNSで副業人材が集まるイメージ"></div>
+        <div class="work-img anim-sns">
+          <img src="img/work-sns.png" alt="SNSで副業人材が集まるイメージ">
+          <span class="sns-pop p1"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+          <span class="sns-pop p2">応募 +1</span>
+          <span class="sns-pop p3"><svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span>
+          <span class="sns-pop p4">面談希望 +1</span>
+        </div>
         <p class="work-cap">「どうやって集めるの？」もご安心ください。<br><b>集め方のノウハウは、すべて本部が共有します。</b></p>
       </div>
       <div class="work you">
         <span class="time-badge">スキマ時間でOK</span>
         <span class="tag">あなたの仕事</span>
         <h4>③ LINEでおつなぎする</h4>
-        <div class="work-bridge">
+        <div class="work-bridge anim-bridge">
           <img src="img/line-logo.png" alt="LINE" class="bridge-icon">
           <span class="bridge-bubble">おつなぎ</span>
           <span class="bridge-biz"><svg viewBox="0 0 24 24" width="40" height="40"><path fill="var(--green-deep)" d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></span>
@@ -1237,63 +1324,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 </div>
 
-<!-- ================= ⑭ フォーム ================= -->
-<div class="sec-label">
-  <span class="num">SEC 14</span><h2>資料請求フォーム（CV）</h2>
-  <p class="purpose">目的：入力4項目・資料プレビューでCVRを最大化。CPA目標：資料請求28,000円以下</p>
-</div>
+<!-- ================= ⑭ フッター ================= -->
 <div class="lp">
-  <section class="lp-sec bg-deep" id="form">
-    <h3 class="lp-h">無料資料のお申し込み</h3>
-    <p class="form-lead" style="color:#fff;">事業の仕組み・収益実績・加盟プランがわかる資料を<br><span class="free">無料</span>でお届けします（入力は<b>約10秒</b>）</p>
-    <div class="doc-preview">
-      <img src="img/wp-thumb1.png" alt="資料表紙">
-      <img src="img/wp-thumb2.png" alt="収益実績ページ">
-      <img src="img/wp-thumb3.png" alt="他業種との比較">
-    </div>
-    <form id="contact-form" class="form-box">
-      <input type="hidden" name="page_url" id="page_url">
-      <div class="form-row"><label for="f-type">現在のお立場<span class="req">必須</span></label>
-        <select name="applicant_type" id="f-type" required>
-          <option value="" disabled selected>選択してください</option>
-          <option value="個人・個人事業主">個人・個人事業主</option>
-          <option value="法人">法人</option>
-        </select>
-      </div>
-      <div class="form-row"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" name="name" id="f-name" placeholder="例）山田 太郎" required></div>
-      <div class="form-row"><label for="f-company">会社名<span class="opt">任意</span></label><input type="text" name="company" id="f-company" placeholder="例）株式会社〇〇"><small style="font-size:11px;color:var(--ink-soft);">個人の方は空欄で構いません</small></div>
-      <div class="form-row"><label for="f-pref">都道府県<span class="req">必須</span></label>
-        <select name="prefecture" id="f-pref" required>
-          <option value="" disabled selected>選択してください</option>
-          <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
-          <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
-          <option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
-          <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
-          <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
-          <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
-          <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
-          <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
-        </select>
-      </div>
-      <div class="form-row"><label for="f-fund">ご準備可能な自己資金<span class="req">必須</span></label>
-        <select name="fund" id="f-fund" required>
-          <option value="" disabled selected>選択してください</option>
-          <option value="130万円未満">130万円未満</option>
-          <option value="130〜300万円">130〜300万円</option>
-          <option value="300万円以上">300万円以上</option>
-        </select>
-      </div>
-      <div class="form-row"><label for="f-tel">電話番号<span class="req">必須</span></label><input type="tel" name="phone" id="f-tel" placeholder="例）090-1234-5678" required></div>
-      <div class="form-row"><label for="f-email">メールアドレス<span class="req">必須</span></label><input type="email" name="email" id="f-email" placeholder="例）example@gmail.com" required><small style="font-size:11px;color:var(--ink-soft);">キャリアメールは届かない場合があります。Gmail等をご入力ください</small></div>
-      <button type="submit" class="cta-btn" style="margin-top:10px;">無料で資料を受け取る</button>
-      <p class="cta-sub" style="text-align:center;"><a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener" style="color:var(--ink-soft);">個人情報保護方針</a>に同意の上お申し込みください</p>
-      <p class="form-error" id="form-error" style="display:none;"></p>
-    </form>
-  </section>
   <footer class="lp-footer">株式会社eito.ct｜<a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">プライバシーポリシー</a></footer>
-  <div class="sticky-note">▼ 画面下部に追従CTAボタン「無料で資料をダウンロード」を常時表示（全セクション共通）</div>
 </div>
-<p class="note"><b>制作メモ：</b>項目は6項目（お申込者[個人/法人]・お名前・会社名[任意]・都道府県[選択式]・電話番号・メールアドレス）。当初合意の4項目から拡張しているため、CVRへの影響と本部承認を確認のうえFIX。送信後はサンクスページ→サンクスメール（PDF資料リンク＋note案内）→即架電の運用フローに接続。</p>
 
 <!-- ================= ドキュメント末尾 ================= -->
 <div class="doc-end">
@@ -1309,49 +1343,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="s-num">10</span>
       <span class="s-unit">秒</span>
     </div>
-    <a class="cta-btn" href="#form">無料で資料を受け取る<small>しつこい営業はいたしません</small></a>
+    <a class="cta-btn" href="form.html">無料で資料を受け取る<small>しつこい営業はいたしません</small></a>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+// URLパラメーターをform.htmlへのリンクに引き継ぐ
 (function(){
-  /* 追従CTA制御 */
+  var q = window.location.search;
+  if (!q) return;
+  var links = document.querySelectorAll('a[href*="form.html"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].href = 'form.html' + q;
+  }
+})();
+
+(function(){
+  /* 追従CTA制御：フッター到達時に非表示 */
   var cta=document.querySelector('.sticky-cta');
-  var formSec=document.getElementById('form');
-  if(cta&&formSec){
+  var footer=document.querySelector('.lp-footer');
+  if(cta&&footer){
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         cta.classList.toggle('hidden',e.isIntersecting);
       });
     },{threshold:0.1});
-    io.observe(formSec);
+    io.observe(footer);
   }
-
-  /* EmailJS */
-  emailjs.init('EP-hfSXZ05nhzr9ZJ');
-  document.getElementById('page_url').value=location.href;
-
-  var contactForm=document.getElementById('contact-form');
-  contactForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    var btn=contactForm.querySelector('button.cta-btn');
-    var errEl=document.getElementById('form-error');
-    errEl.style.display='none';
-    btn.disabled=true;
-    btn.textContent='送信中...';
-
-    emailjs.sendForm('service_vnyk47y','template_t0nvy1j',contactForm)
-      .then(function(){
-        window.location.href='thanks.html';
-      })
-      .catch(function(){
-        errEl.textContent='送信に失敗しました。お手数ですが、もう一度お試しください。';
-        errEl.style.display='block';
-        btn.disabled=false;
-        btn.textContent='無料で資料を受け取る';
-      });
-  });
+})();
+</script>
+<script>
+/* アニメーション：画面に入ったら開始 */
+(function(){
+  var els=document.querySelectorAll('.anim-scheme,.anim-sns,.anim-bridge');
+  if(!('IntersectionObserver' in window)){for(var i=0;i<els.length;i++)els[i].classList.add('is-in');return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target);}});
+  },{threshold:.35});
+  for(var i=0;i<els.length;i++)io.observe(els[i]);
 })();
 </script>
 </body>

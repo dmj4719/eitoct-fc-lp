@@ -29,160 +29,256 @@ body{
 }
 .tp{max-width:480px;margin:0 auto;background:#fff;min-height:100vh;overflow:hidden;}
 
-/* ===== ヘッダー ===== */
-.tp-header{
-  background:linear-gradient(165deg,#F3FAF6 0%,#D4E8DC 100%);
-  text-align:center;padding:48px 26px 36px;
-  position:relative;overflow:hidden;
+/* ===== ① コンパクト完了バー ===== */
+.tp-bar{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 24px;
+  background:var(--green-deep);
 }
-.tp-header::before{
-  content:"";position:absolute;inset:0;
-  background-image:radial-gradient(circle, rgba(30,92,76,.05) 1.5px, transparent 1.5px);
-  background-size:28px 28px;pointer-events:none;
-}
-.tp-header *{position:relative;z-index:1;}
-.tp-logo{width:140px;height:auto;margin-bottom:24px;}
-.tp-check{
-  width:64px;height:64px;border-radius:50%;
-  background:var(--green-deep);color:#fff;
+.tp-bar__icon{
   display:flex;align-items:center;justify-content:center;
-  margin:0 auto 18px;font-size:32px;font-weight:900;
-  box-shadow:0 4px 16px rgba(30,92,76,.3);
+  width:24px;height:24px;
+  background:#fff;color:var(--green-deep);
+  font-size:14px;font-weight:900;border-radius:50%;flex-shrink:0;
 }
-.tp-header h1{
+.tp-bar__text{
+  font-size:14px;font-weight:700;color:#fff;letter-spacing:.04em;
+}
+.tp-bar__sub{
+  display:block;font-size:11px;font-weight:400;color:rgba(255,255,255,.7);
+  margin-top:2px;letter-spacing:.02em;
+}
+
+/* ===== ② 損失回避セクション ===== */
+.tp-urgency{
+  padding:24px 24px 20px;text-align:center;
+  background:linear-gradient(180deg,#FFF8E1 0%,#FFF3CD 100%);
+  border-bottom:2px solid var(--cta);
+}
+.tp-urgency__badge{
+  display:inline-block;
+  background:var(--cta);color:#fff;
+  font-size:12px;font-weight:900;
+  padding:4px 16px;border-radius:20px;
+  letter-spacing:.08em;margin-bottom:12px;
+  box-shadow:0 2px 8px rgba(232,129,58,.3);
+}
+.tp-urgency__title{
   font-family:"Zen Maru Gothic",sans-serif;
-  font-size:22px;font-weight:900;color:var(--green-deep);
-  line-height:1.5;margin-bottom:10px;
+  font-size:20px;font-weight:900;color:var(--ink);line-height:1.6;
+  margin-bottom:16px;
 }
-.tp-header p{font-size:14px;color:var(--ink-soft);line-height:1.8;}
-.tp-header p b{color:var(--ink);}
-
-/* ===== セクション共通 ===== */
-.tp-sec{padding:40px 26px;}
-.tp-sec.bg-soft{background:var(--green-soft);}
-.tp-sec.bg-cream{background:var(--cream);}
-.eyebrow{
-  display:block;text-align:center;font-size:13px;font-weight:700;
-  color:var(--green-mid);letter-spacing:.22em;margin-bottom:10px;
+.tp-urgency__highlight{
+  color:var(--green-deep);
+  background-image:linear-gradient(transparent 60%, rgba(30,92,76,.12) 60%);
 }
-h2.tp-h{
-  font-family:"Zen Maru Gothic",sans-serif;
-  text-align:center;font-size:22px;font-weight:900;line-height:1.5;
-  color:var(--green-deep);margin-bottom:22px;
+.tp-urgency__items{
+  display:flex;flex-direction:column;gap:10px;
+  text-align:left;margin-bottom:16px;
 }
-h2.tp-h .u{
-  background:linear-gradient(transparent 62%, #F5D9A8 62%);
-  padding:0 2px;
-}
-
-/* ===== ステップ案内 ===== */
-.tp-steps{counter-reset:step;}
-.tp-step{
-  display:flex;align-items:flex-start;gap:14px;
-  margin-bottom:20px;
-}
-.tp-step::before{
-  counter-increment:step;content:counter(step);
-  flex-shrink:0;width:36px;height:36px;border-radius:50%;
-  background:var(--green-deep);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;
-}
-.tp-step-body b{color:var(--green-deep);font-size:15px;display:block;margin-bottom:2px;}
-.tp-step-body span{font-size:13px;color:var(--ink-soft);}
-
-/* ===== 代表メッセージ ===== */
-.tp-ceo{text-align:center;margin-bottom:20px;}
-.tp-ceo img{
-  width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center 1%;
-  border:3px solid var(--green-soft);
-  box-shadow:0 4px 16px rgba(30,92,76,.15);
-}
-.tp-ceo-name{
-  font-family:"Zen Maru Gothic",sans-serif;
-  font-size:13px;color:var(--ink-soft);margin-top:10px;
-}
-.tp-ceo-name b{display:block;font-size:16px;color:var(--ink);margin-top:2px;}
-.tp-msg{
-  background:var(--green-soft);border-radius:14px;padding:20px 18px;
-  font-size:14px;line-height:1.9;color:var(--ink);
-  position:relative;
-}
-.tp-msg::before{
-  content:"";position:absolute;top:-10px;left:50%;margin-left:-10px;
-  border:10px solid transparent;border-bottom-color:var(--green-soft);
-}
-.tp-msg b{color:var(--green-deep);}
-
-/* ===== 資料プレビュー ===== */
-.tp-preview{
-  display:flex;gap:8px;margin:20px 0;
-}
-.tp-preview img{
-  flex:1;min-width:0;height:auto;border-radius:6px;
-  object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.12);
-}
-
-/* ===== 安心ポイント ===== */
-.tp-points{display:flex;flex-direction:column;gap:12px;}
-.tp-point{
-  display:flex;align-items:center;gap:12px;
-  background:#fff;border-radius:12px;padding:14px 16px;
+.tp-urgency__item{
+  display:flex;align-items:flex-start;gap:10px;
+  background:#fff;border-radius:10px;padding:12px 14px;
   border:1px solid var(--line);
 }
-.tp-point-icon{
-  flex-shrink:0;width:40px;height:40px;border-radius:10px;
-  background:var(--green-soft);color:var(--green-deep);
-  display:flex;align-items:center;justify-content:center;font-size:20px;
+.tp-urgency__item-icon{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:var(--green-deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;
 }
-.tp-point b{font-size:14px;color:var(--green-deep);display:block;}
-.tp-point span{font-size:12px;color:var(--ink-soft);}
+.tp-urgency__item-text{
+  font-size:13px;font-weight:500;color:var(--ink);line-height:1.6;
+}
+.tp-urgency__item-text b{color:var(--green-deep);font-weight:700;}
+.tp-urgency__em{
+  color:var(--cta);font-weight:900;
+  background:linear-gradient(transparent 60%, rgba(232,129,58,.15) 60%);
+  padding:0 1px;
+}
+.tp-urgency__bridge{
+  font-size:14px;font-weight:700;color:var(--ink);
+  margin-top:16px;letter-spacing:.02em;
+}
+.tp-urgency__bridge-em{
+  color:var(--cta);font-weight:900;font-size:16px;
+}
+.tp-urgency__note{
+  font-size:12px;color:var(--ink-soft);line-height:1.6;margin-top:4px;
+}
+.tp-urgency__note b{color:var(--cta);font-weight:700;}
 
-/* ===== CTA ===== */
-.tp-cta{
-  text-align:center;padding:36px 26px;
+/* ===== ③ カレンダー（上部配置） ===== */
+.tp-booking-top{
+  padding:8px 16px 16px;background:#fff;
+}
+.tp-booking-top__cal{
+  background:var(--green-soft);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px;
+  min-height:360px;
+}
+
+/* ===== ④ ストーリーセクション ===== */
+.tp-story{
+  border-top:1px solid var(--line);
+}
+.tp-story__headline{
+  padding:32px 24px 20px;text-align:center;
+  background:var(--cream);
+}
+.tp-story__headline-main{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:18px;font-weight:900;color:var(--green-deep);line-height:1.7;
+}
+.tp-story__headline-main em{
+  font-style:normal;
+  background:linear-gradient(transparent 62%, #F5D9A8 62%);padding:0 2px;
+}
+.tp-story__body{
+  padding:0 24px 32px;background:var(--cream);
+}
+.tp-story__text{margin-bottom:24px;}
+.tp-story__p1{font-size:14px;color:var(--ink-soft);line-height:1.9;margin-bottom:14px;}
+.tp-story__p2{font-size:14px;color:var(--ink);line-height:1.9;margin-bottom:14px;}
+.tp-story__p3{
+  font-size:15px;font-weight:700;color:var(--green-deep);line-height:1.8;
+}
+.tp-story__photo{text-align:center;}
+.tp-story__photo-img{
+  width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:center 1%;
+  border:3px solid var(--green-soft);
+  box-shadow:0 4px 16px rgba(30,92,76,.15);
+  margin-bottom:8px;
+}
+.tp-story__photo-company{display:block;font-size:11px;color:var(--ink-soft);}
+.tp-story__photo-name{display:block;font-size:11px;color:var(--ink-soft);}
+.tp-story__photo-fullname{
+  display:block;font-size:16px;font-weight:700;color:var(--ink);
+  font-family:"Zen Maru Gothic",sans-serif;margin-top:2px;
+}
+
+/* ===== ⑤ 限定特典セクション ===== */
+.tp-offer{
+  padding:32px 24px 36px;text-align:center;
+  background:var(--green-soft);border-top:3px solid var(--green-deep);
+}
+.tp-offer__lead{
+  display:inline-block;font-size:14px;font-weight:700;
+  color:#fff;background:var(--green-deep);
+  padding:6px 20px;border-radius:100px;margin-bottom:12px;
+  letter-spacing:.04em;
+}
+.tp-offer__title{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:28px;font-weight:900;color:var(--ink);
+  margin-bottom:16px;letter-spacing:.06em;
+  position:relative;display:inline-block;
+}
+.tp-offer__title::after{
+  content:"";position:absolute;
+  left:10%;right:10%;bottom:-4px;height:4px;
+  background:var(--gold);border-radius:2px;
+}
+.tp-offer__highlight-text{
+  font-size:20px;font-weight:900;color:var(--ink);
+  line-height:1.5;margin-bottom:20px;margin-top:16px;
+}
+.tp-offer__highlight{
+  color:var(--green-deep);
+  background:linear-gradient(transparent 60%, rgba(30,92,76,.12) 60%);
+}
+.tp-offer__merits{
+  list-style:none;background:#fff;border-radius:12px;
+  padding:20px 24px;margin:0 auto;max-width:400px;text-align:left;
+}
+.tp-offer__merit{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;font-weight:500;color:var(--ink);line-height:1.5;
+}
+.tp-offer__merit + .tp-offer__merit{margin-top:12px;}
+.tp-offer__merit-icon{
+  flex-shrink:0;width:24px;height:24px;
+  background:var(--green-deep);color:#fff;
+  font-size:13px;font-weight:900;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== ⑥ 課題チェック + 解決 ===== */
+.tp-checklist{
+  padding:36px 24px 32px;text-align:center;
+}
+.tp-checklist__title{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:18px;font-weight:900;color:var(--ink);
+  line-height:1.6;margin-bottom:20px;
+}
+.tp-checklist__list{
+  list-style:none;text-align:left;
+  max-width:360px;margin:0 auto 20px;
+}
+.tp-checklist__list li{
+  font-size:14px;font-weight:500;color:var(--ink);
+  padding:10px 0;border-bottom:1px solid var(--line);
+  padding-left:28px;position:relative;
+}
+.tp-checklist__list li:last-child{border-bottom:none;}
+.tp-checklist__list li::before{
+  content:"✓";position:absolute;left:0;
+  color:var(--green-mid);font-weight:900;
+}
+.tp-checklist__arrow{text-align:center;margin-bottom:20px;}
+.tp-solution__card{
   background:linear-gradient(135deg,var(--green-deep) 0%,#2D7A60 100%);
+  border-radius:16px;padding:28px 24px;text-align:center;
+  box-shadow:0 4px 20px rgba(30,92,76,.2);
 }
-.tp-cta p{color:rgba(255,255,255,.9);font-size:14px;font-weight:700;margin-bottom:14px;line-height:1.7;}
-.tp-cta .cta-btn{
-  display:block;background:linear-gradient(180deg,var(--cta),var(--cta-deep));
-  color:#fff;font-size:18px;font-weight:900;text-decoration:none;text-align:center;
-  border-radius:999px;padding:16px 10px;
-  box-shadow:0 5px 0 #A9541B, 0 10px 18px rgba(208,106,36,.35);
-  letter-spacing:.04em;max-width:360px;margin:0 auto;
+.tp-solution__sub{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:4px;}
+.tp-solution__price{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;}
+.tp-solution__num{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:44px;font-weight:900;color:var(--gold);
+  line-height:1;
 }
-.tp-cta .cta-btn small{display:block;font-size:11px;font-weight:500;opacity:.92;letter-spacing:.1em;}
-.tp-cta-note{font-size:11px;color:rgba(255,255,255,.6);margin-top:10px;}
+.tp-solution__body{
+  font-size:16px;font-weight:900;color:#fff;margin-top:8px;
+}
 
 /* ===== 追従CTA ===== */
-.sticky-cta{
-  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
-  width:100%;max-width:480px;z-index:999;
-  background:linear-gradient(180deg,#1a4f42 0%,#163f35 100%);
-  text-align:center;
-  box-shadow:0 -4px 20px rgba(0,0,0,.25);
-  border-radius:12px 12px 0 0;
+.tp-sticky{
+  position:fixed;bottom:10px;left:0;right:0;z-index:9999;
+  padding:0 10px;max-width:480px;margin:0 auto;
+  transition:opacity .3s ease,visibility .3s ease;
 }
-.sticky-cta .sticky-micro{
-  background:var(--gold);color:#fff;
-  font-size:12px;font-weight:700;letter-spacing:.06em;
-  padding:5px 10px;
-  border-radius:12px 12px 0 0;
-}
-.sticky-cta .sticky-body{
-  padding:10px 16px 12px;
-}
-.sticky-cta .cta-btn{
-  display:block;max-width:320px;margin:0 auto;
-  background:var(--cta);color:#fff;font-size:17px;font-weight:900;
+.tp-sticky.is-hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.tp-sticky__btn{
+  display:block;position:relative;width:100%;
+  background:linear-gradient(135deg,var(--cta) 0%,var(--cta-deep) 100%);
+  border-radius:12px;padding:14px 20px 16px;
   text-align:center;text-decoration:none;
-  padding:14px 10px;border-radius:60px;
-  box-shadow:0 4px 14px rgba(255,140,0,.35);
-  animation:pulse 2.6s ease-in-out infinite;
+  box-shadow:0 4px 20px rgba(232,129,58,.45);
+  animation:tp-pulse 2s ease-in-out infinite;
 }
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
-.sticky-cta{transition:opacity .4s ease,visibility .4s ease;}
-.sticky-cta.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+@keyframes tp-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(232,129,58,.45);}
+  50%{box-shadow:0 4px 28px rgba(232,129,58,.65);}
+}
+.tp-sticky__badge{
+  position:absolute;top:-10px;left:12px;
+  background:#FFD54F;color:#333;
+  font-size:10px;font-weight:900;
+  padding:3px 10px;border-radius:10px;
+  letter-spacing:.04em;box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+.tp-sticky__sub{
+  display:block;font-size:13px;font-weight:700;
+  color:rgba(255,255,255,.9);letter-spacing:.06em;margin-bottom:2px;
+}
+.tp-sticky__main{
+  display:block;font-size:18px;font-weight:900;
+  color:#fff;letter-spacing:.06em;
+}
 
 /* ===== フッター ===== */
 .tp-footer{
@@ -193,8 +289,7 @@ h2.tp-h .u{
 
 /* ===== レスポンシブ ===== */
 @media(max-width:520px){
-  .tp-header h1{font-size:20px;}
-  h2.tp-h{font-size:20px;}
+  .tp-urgency__title{font-size:18px;}
 }
 </style>
 <!-- Google Tag Manager -->
@@ -213,111 +308,137 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="tp">
 
-  <!-- ヘッダー -->
-  <div class="tp-header">
-    <img src="img/logo.png" alt="eito.ct" class="tp-logo">
-    <div class="tp-check">✓</div>
-    <h1>資料の送付を<br>受け付けました</h1>
-    <p>ご入力いただいたメールアドレスへ、<br><b>資料</b>をお送りいたします。<br>届かない場合は迷惑メールフォルダもご確認ください。</p>
+  <!-- ===== ① コンパクト完了バー ===== -->
+  <div class="tp-bar">
+    <span class="tp-bar__icon">✓</span>
+    <span class="tp-bar__text">資料の送付を受け付けました
+      <span class="tp-bar__sub">メールをご確認ください<br>※受信できていない場合は迷惑メールフォルダもご確認ください</span>
+    </span>
   </div>
 
-  <!-- 今後の流れ -->
-  <div class="tp-sec">
-    <span class="eyebrow">NEXT STEP</span>
-    <h2 class="tp-h">今後の<span class="u">3ステップ</span></h2>
-    <div class="tp-steps">
-      <div class="tp-step">
-        <div class="tp-step-body">
-          <b>資料をご確認ください</b>
-          <span>事業の仕組み・収益実績・加盟プランをまとめています。</span>
-        </div>
+  <!-- ===== ② 損失回避セクション ===== -->
+  <section class="tp-urgency">
+    <h2 class="tp-urgency__title">
+      面談でしか<br><span class="tp-urgency__highlight">お伝えできない情報</span>があります！
+    </h2>
+    <div class="tp-urgency__items">
+      <div class="tp-urgency__item">
+        <span class="tp-urgency__item-icon">1</span>
+        <span class="tp-urgency__item-text"><b>非公開の紹介報酬一覧</b>を直接お見せします</span>
       </div>
-      <div class="tp-step">
-        <div class="tp-step-body">
-          <b>個別面談（オンライン30〜60分）</b>
-          <span>疑問点になんでもお答えします。無理な勧誘はいたしません。</span>
-        </div>
+      <div class="tp-urgency__item">
+        <span class="tp-urgency__item-icon">2</span>
+        <span class="tp-urgency__item-text"><b>既存パートナーの売上推移</b>を実例でご紹介</span>
       </div>
-      <div class="tp-step">
-        <div class="tp-step-body">
-          <b>ご納得いただけたらスタート</b>
-          <span>電子契約で来社不要。個別レクチャー全5回で安心して開始できます。</span>
-        </div>
+      <div class="tp-urgency__item">
+        <span class="tp-urgency__item-icon">3</span>
+        <span class="tp-urgency__item-text"><b>稼働(人材集客)イメージ</b>を<span class="tp-urgency__em">代表が直接</span>ご案内</span>
       </div>
     </div>
-  </div>
+    <p class="tp-urgency__bridge">下記より<span class="tp-urgency__bridge-em">10秒</span>で<span class="tp-urgency__bridge-em">個別面談</span>にお申し込み可能です</p>
+  </section>
 
-  <!-- 代表メッセージ -->
-  <div class="tp-sec bg-cream">
-    <span class="eyebrow">MESSAGE</span>
-    <h2 class="tp-h">ぜひ一度<span class="u">お話しましょう</span></h2>
-    <div class="tp-ceo">
-      <img src="img/ceo.jpg" alt="株式会社eito.ct 代表 保科 拓也">
-      <p class="tp-ceo-name">株式会社eito.ct 代表<b>保科 拓也</b></p>
+  <!-- ===== ③ TimeRex カレンダー ===== -->
+  <section class="tp-booking-top">
+    <div class="tp-booking-top__cal" id="booking">
+      <!-- Begin TimeRex Widget -->
+      <div id="timerex_calendar" data-url="https://timerex.net/s/hossy0902_e625/df270592"></div>
+      <script id="timerex_embed" src="https://asset.timerex.net/js/embed.js"></script>
+      <script type="text/javascript">TimerexCalendar();</script>
+      <!-- End TimeRex Widget -->
     </div>
-    <div class="tp-msg">
-      資料をご請求いただき、ありがとうございます。<br><br>
-      副業の市場は年々広がっていて、<b>今はオーナーとして始めやすいタイミング</b>だと感じています。<br><br>
-      面談では<b>30〜60分、ゆっくりお話を聞かせていただきながら</b>、気になることに一つひとつお答えしています。<b>お気軽にお声がけください。</b>
-    </div>
-  </div>
+  </section>
 
-  <!-- 資料プレビュー -->
-  <div class="tp-sec">
-    <span class="eyebrow">DOCUMENT</span>
-    <h2 class="tp-h">お届けする資料の一部</h2>
-    <div class="tp-preview">
-      <img src="img/wp-thumb1.png" alt="資料表紙">
-      <img src="img/wp-thumb2.png" alt="収益実績ページ">
-      <img src="img/wp-thumb3.png" alt="他業種との比較">
+  <!-- ===== ④ ストーリーセクション ===== -->
+  <section class="tp-story">
+    <div class="tp-story__headline">
+      <p class="tp-story__headline-main"><em>固定費ゼロ・営業不要</em>の<br>副業FCを全国に届けたい。</p>
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--ink);margin-top:12px;font-weight:700;line-height:1.7;">資料だけではお伝えしきれない</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:320px;margin:10px auto 14px;">
-      <span style="background:var(--green-soft);color:var(--green-deep);font-size:12.5px;font-weight:700;text-align:center;padding:8px 6px;border-radius:8px;">非公開の収益データ</span>
-      <span style="background:var(--green-soft);color:var(--green-deep);font-size:12.5px;font-weight:700;text-align:center;padding:8px 6px;border-radius:8px;">成功事例</span>
-      <span style="background:var(--green-soft);color:var(--green-deep);font-size:12.5px;font-weight:700;text-align:center;padding:8px 6px;border-radius:8px;grid-column:1/-1;">具体的なサービスの仕組み</span>
+    <div class="tp-story__body">
+      <div class="tp-story__text">
+        <p class="tp-story__p1">副業の市場は年々広がっている。でも「怪しい」というイメージが、多くの人の一歩を止めていた。</p>
+        <p class="tp-story__p2">私たちは6年間で累計25,000人以上を支援する中で、安心して取り組める副業コミュニティを作り上げました。今回、それをあなた自身の事業として運営できるフランチャイズを募集しています。</p>
+        <p class="tp-story__p3">30分の面談のお時間は<br>無駄にしませんので、<br>ぜひ一度お話しましょう。</p>
+      </div>
+      <div class="tp-story__photo">
+        <img src="img/ceo.jpg" alt="代表 保科 拓也" class="tp-story__photo-img">
+        <span class="tp-story__photo-company">株式会社eito.ct</span>
+        <span class="tp-story__photo-name">代表</span>
+        <span class="tp-story__photo-fullname">保科 拓也</span>
+      </div>
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--ink);font-weight:700;line-height:1.7;">などを個別面談で<br>直接お伝えさせていただきます。</p>
-  </div>
+  </section>
 
-  <!-- 面談予約 -->
-  <div class="tp-sec bg-soft" id="booking">
-    <span class="eyebrow">BOOKING</span>
-    <h2 class="tp-h">個別面談の<span class="u">ご予約</span></h2>
-    <p style="text-align:center;font-size:14px;color:var(--ink-soft);margin-bottom:20px;line-height:1.8;">ご都合の良い日時をお選びください。<br>オンライン（30〜60分）で実施いたします。</p>
-    <!-- Begin TimeRex Widget -->
-    <div id="timerex_calendar" data-url="https://timerex.net/s/hossy0902_e625/df270592"></div>
-    <script id="timerex_embed" src="https://asset.timerex.net/js/embed.js"></script>
-    <script type="text/javascript">TimerexCalendar();</script>
-    <!-- End TimeRex Widget -->
-  </div>
+  <!-- ===== ⑤ 限定特典セクション ===== -->
+  <section class="tp-offer">
+    <p class="tp-offer__lead">面談で直接お伝えします</p>
+    <h2 class="tp-offer__title">限定情報</h2>
+    <p class="tp-offer__highlight-text"><span class="tp-offer__highlight">紹介報酬の全額一覧</span>と<br><span class="tp-offer__highlight">パートナー実績データ</span></p>
 
-  <!-- フッター -->
+    <ul class="tp-offer__merits">
+      <li class="tp-offer__merit">
+        <span class="tp-offer__merit-icon">✓</span>
+        <span>50ジャンル500件以上の報酬額がわかる</span>
+      </li>
+      <li class="tp-offer__merit">
+        <span class="tp-offer__merit-icon">✓</span>
+        <span>SNSだけで年3,400万円の実績事例</span>
+      </li>
+      <li class="tp-offer__merit">
+        <span class="tp-offer__merit-icon">✓</span>
+        <span>初年度で元が取れる収益シミュレーション</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== ⑥ 課題チェック + 解決 ===== -->
+  <section class="tp-checklist">
+    <h2 class="tp-checklist__title">こんな方は<br>今すぐ面談予約がおすすめです</h2>
+
+    <ul class="tp-checklist__list">
+      <li>新しい事業の柱がもう一つ欲しい</li>
+      <li>固定費やリスクの少ないビジネスを探している</li>
+      <li>集客のやり方に自信がない</li>
+      <li>副業FCの実際の収益が知りたい</li>
+      <li>まず話を聞いてから判断したい</li>
+    </ul>
+
+    <div class="tp-checklist__arrow">
+      <svg width="40" height="24" viewBox="0 0 40 24" fill="none"><path d="M2 2L20 20L38 2" stroke="#3E8A6E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="tp-solution__card">
+      <p class="tp-solution__sub">初年度で営業利益</p>
+      <p class="tp-solution__price">約<span class="tp-solution__num">3,000</span>万円</p>
+      <p class="tp-solution__body">日本一の副業FCで実現</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
   <footer class="tp-footer">
     株式会社eito.ct｜<a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>
   </footer>
 
 </div>
 
-<!-- 追従CTA -->
-<div class="sticky-cta">
-  <div class="sticky-micro">＼固定費0円のリスクなしFC／</div>
-  <div class="sticky-body">
-    <a class="cta-btn" href="#booking">無料面談はこちら</a>
-  </div>
+<!-- ===== 追従CTA ===== -->
+<div class="tp-sticky is-hidden" id="tp-sticky">
+  <a href="#timerex_calendar" class="tp-sticky__btn">
+    <span class="tp-sticky__badge">残りわずか</span>
+    <span class="tp-sticky__sub">固定費ゼロのFC、30分で詳しく</span>
+    <span class="tp-sticky__main">今すぐ面談を予約する</span>
+  </a>
 </div>
 
 <script>
 (function(){
-  var cta=document.querySelector('.sticky-cta');
-  var booking=document.getElementById('booking');
-  if(!cta||!booking)return;
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      cta.classList.toggle('hidden',e.isIntersecting);
-    });
-  },{threshold:0.1});
-  io.observe(booking);
+  var sticky=document.getElementById('tp-sticky');
+  var calendar=document.getElementById('timerex_calendar');
+  if(!sticky||!calendar)return;
+  var observer=new IntersectionObserver(function(entries){
+    sticky.classList.toggle('is-hidden',entries[0].isIntersecting);
+  },{threshold:0});
+  observer.observe(calendar);
 })();
 </script>
 </body>

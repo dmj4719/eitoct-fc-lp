@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>無料資料請求｜副業人材マッチングFC｜株式会社eito.ct</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-deep:#1E5C4C;
+  --green-mid:#3E8A6E;
+  --green-soft:#EAF4EE;
+  --gold:#C4862A;
+  --gold-deep:#A96F1B;
+  --cta:#E8813A;
+  --cta-deep:#D06A24;
+  --ink:#2E3B36;
+  --ink-soft:#5C6B64;
+  --cream:#FBF9F4;
+  --alert:#C0554F;
+  --line:#DCE5DF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Noto Sans JP",sans-serif;
+  background:#f5f5f3;
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px 16px;
+}
+.form-page{
+  width:100%;max-width:520px;margin:0 auto;
+}
+/* ヘッダー */
+.fp-header{
+  text-align:center;margin-bottom:24px;
+}
+.fp-logo{width:140px;height:auto;margin-bottom:20px;}
+.fp-title{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:24px;font-weight:900;color:var(--green-deep);
+  line-height:1.5;margin-bottom:10px;
+}
+.fp-desc{
+  font-size:14px;color:var(--ink-soft);line-height:1.8;
+}
+.fp-desc b{color:var(--ink);}
+/* タグ */
+.fp-tags{
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:14px 0 18px;
+}
+.fp-tags span{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--green-soft);color:var(--green-deep);
+  font-size:12px;font-weight:700;border-radius:999px;padding:5px 13px;
+}
+.fp-tags span::before{
+  content:"✓";font-size:10px;font-weight:900;
+}
+/* 資料プレビュー */
+.fp-preview{
+  display:flex;gap:8px;margin-bottom:24px;
+}
+.fp-preview img{
+  flex:1;min-width:0;height:auto;border-radius:6px;
+  object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+/* フォームカード */
+.fp-card{
+  background:#fff;border-radius:16px;padding:28px 24px;
+  box-shadow:0 4px 20px rgba(30,60,50,.08);
+}
+.fp-card-title{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:16px;font-weight:900;color:var(--green-deep);
+  text-align:center;margin-bottom:6px;
+}
+.fp-card-sub{
+  font-size:13px;color:var(--ink-soft);text-align:center;margin-bottom:20px;
+}
+.fp-card-sub .free{color:var(--cta-deep);font-size:18px;font-weight:900;}
+/* フォーム */
+.form-row{margin-bottom:16px;}
+.form-row label{display:block;font-size:13px;font-weight:700;margin-bottom:5px;color:var(--ink);}
+.req{background:var(--alert);color:#fff;font-size:10px;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px;}
+.opt{background:#B9B6AD;color:#fff;font-size:10px;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px;}
+input[type="text"],
+input[type="tel"],
+input[type="email"]{
+  width:100%;background:#F4F6F5;border:1px solid var(--line);border-radius:8px;height:48px;
+  padding:0 14px;font-size:15px;font-family:"Noto Sans JP",sans-serif;color:var(--ink);
+  outline:none;-webkit-appearance:none;
+}
+input:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(62,138,110,.12);}
+select{
+  width:100%;background:#F4F6F5;border:1px solid var(--line);border-radius:8px;height:48px;
+  padding:0 14px;font-size:15px;font-family:"Noto Sans JP",sans-serif;color:var(--ink);
+  outline:none;-webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233E8A6E' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+select:focus{border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(62,138,110,.12);}
+select:invalid{color:#8B958F;}
+.form-hint{font-size:11px;color:var(--ink-soft);margin-top:3px;}
+/* ボタン */
+.submit-btn{
+  display:block;width:100%;max-width:360px;margin:24px auto 0;
+  background:linear-gradient(180deg,var(--cta),var(--cta-deep));
+  color:#fff;font-size:18px;font-weight:900;text-align:center;
+  border:none;border-radius:999px;padding:18px 10px;cursor:pointer;
+  box-shadow:0 5px 0 #A9541B, 0 10px 18px rgba(208,106,36,.35);
+  letter-spacing:.04em;
+  font-family:"Noto Sans JP",sans-serif;
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);box-shadow:0 5px 0 #A9541B, 0 10px 18px rgba(208,106,36,.35);}
+  50%{transform:scale(1.03);box-shadow:0 6px 0 #A9541B, 0 14px 24px rgba(208,106,36,.45);}
+}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;animation:none;}
+.privacy-link{
+  text-align:center;font-size:11.5px;color:var(--ink-soft);margin-top:12px;
+}
+.privacy-link a{color:var(--ink-soft);}
+.form-error{text-align:center;font-size:13px;color:var(--alert);margin-top:8px;display:none;}
+/* フッター */
+.fp-footer{
+  text-align:center;font-size:11px;color:var(--ink-soft);margin-top:24px;
+}
+.fp-footer a{color:var(--ink-soft);text-decoration:underline;}
+/* レスポンシブ */
+@media(max-width:520px){
+  body{padding:16px 12px;}
+  .fp-title{font-size:20px;}
+  .fp-card{padding:22px 18px;}
+}
+</style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TS6828P9');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TS6828P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="form-page">
+
+  <!-- ヘッダー -->
+  <div class="fp-header">
+    <img src="img/logo.png" alt="eito.ct" class="fp-logo">
+    <h1 class="fp-title">無料資料ダウンロード</h1>
+    <p class="fp-desc">事業の仕組み・収益実績・加盟プランがわかる資料を<br><b>無料</b>でお届けします</p>
+    <div class="fp-tags">
+      <span>収益モデル詳細</span>
+      <span>加盟プラン比較</span>
+      <span>成功事例</span>
+    </div>
+    <div class="fp-preview">
+      <img src="img/wp-thumb1.png" alt="資料表紙">
+      <img src="img/wp-thumb2.png" alt="収益実績ページ">
+      <img src="img/wp-thumb3.png" alt="他業種との比較">
+    </div>
+  </div>
+
+  <!-- フォームカード -->
+  <div class="fp-card">
+    <p class="fp-card-title">以下を入力して資料を受け取る</p>
+    <p class="fp-card-sub">入力は<span class="free">約10秒</span>で完了します</p>
+
+    <form id="contact-form">
+      <input type="hidden" name="page_url" id="page_url">
+
+      <div class="form-row">
+        <label for="f-type">現在のお立場<span class="req">必須</span></label>
+        <select name="applicant_type" id="f-type" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="個人・個人事業主">個人・個人事業主</option>
+          <option value="法人">法人</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="f-name">お名前<span class="req">必須</span></label>
+        <input type="text" name="name" id="f-name" placeholder="例）山田 太郎" required>
+      </div>
+
+      <div class="form-row">
+        <label for="f-company">会社名<span class="opt">任意</span></label>
+        <input type="text" name="company" id="f-company" placeholder="例）株式会社〇〇">
+        <p class="form-hint">個人の方は空欄で構いません</p>
+      </div>
+
+      <div class="form-row">
+        <label for="f-pref">都道府県<span class="req">必須</span></label>
+        <select name="prefecture" id="f-pref" required>
+          <option value="" disabled selected>選択してください</option>
+          <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+          <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
+          <option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+          <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+          <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+          <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+          <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+          <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="f-fund">ご準備可能な自己資金<span class="req">必須</span></label>
+        <select name="fund" id="f-fund" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="130万円未満">130万円未満</option>
+          <option value="130〜300万円">130〜300万円</option>
+          <option value="300万円以上">300万円以上</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="f-tel">電話番号<span class="req">必須</span></label>
+        <input type="tel" name="phone" id="f-tel" placeholder="例）090-1234-5678" required>
+      </div>
+
+      <div class="form-row">
+        <label for="f-email">メールアドレス<span class="req">必須</span></label>
+        <input type="email" name="email" id="f-email" placeholder="例）example@gmail.com" required>
+        <p class="form-hint">キャリアメールは届かない場合があります。Gmail等をご入力ください</p>
+      </div>
+
+      <button type="submit" class="submit-btn">無料で資料を受け取る</button>
+      <p class="privacy-link"><a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener">個人情報保護方針</a>に同意の上お申し込みください</p>
+      <p class="form-error" id="form-error"></p>
+    </form>
+  </div>
+
+  <!-- フッター -->
+  <p class="fp-footer">株式会社eito.ct｜<a href="https://www.eitoct.tokyo/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init('EP-hfSXZ05nhzr9ZJ');
+  document.getElementById('page_url').value=location.href;
+
+  var form=document.getElementById('contact-form');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('.submit-btn');
+    var errEl=document.getElementById('form-error');
+    errEl.style.display='none';
+    btn.disabled=true;
+    btn.textContent='送信中...';
+
+    emailjs.sendForm('service_vnyk47y','template_t0nvy1j',form)
+      .then(function(){
+        window.location.href='thanks.html';
+      })
+      .catch(function(){
+        errEl.textContent='送信に失敗しました。お手数ですが、もう一度お試しください。';
+        errEl.style.display='block';
+        btn.disabled=false;
+        btn.textContent='無料で資料を受け取る';
+      });
+  });
+})();
+</script>
+</body>
+</html>
